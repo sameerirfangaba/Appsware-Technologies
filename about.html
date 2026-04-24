@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Appsware Technologies | About Us</title>
+  
+  <!-- ========== FAVICON SETUP - ASSETS FOLDER ========== -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/appsware/assets/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/appsware/assets/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/appsware/assets/favicon.png">
+  <link rel="shortcut icon" type="image/png" href="/appsware/assets/favicon.png">
+  
+  <!-- Google Fonts - Poppins Primary -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <style>
+    :root {
+      --primary: #FF0049;
+      --dark: #0A0A0F;
+      --gray-bg: #F8F9FC;
+      --card-white: #FFFFFF;
+      --text-dark: #1A1A2E;
+      --text-muted: #5A5A70;
+      --shadow-sm: 0 10px 30px -12px rgba(0, 0, 0, 0.08);
+      --shadow-md: 0 20px 35px -12px rgba(0, 0, 0, 0.12);
+      --shadow-hover: 0 30px 40px -16px rgba(255, 0, 73, 0.15);
+      --transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    }
+
+    /* Hide default cursor globally */
+    body, a, button {
+      cursor: none !important;
+    }
+
+    /* Custom Cursor Styling */
+    .appsware-cursor {
+      width: 32px;
+      height: 32px;
+      background-image: url('/appsware/assets/cursor.jpg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: transform 0.1s ease-out;
+    }
+
+    .appsware-cursor.clicking {
+      transform: translate(-50%, -50%) scale(0.8);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #FFFFFF;
+      color: var(--text-dark);
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    /* All text elements use Poppins */
+    h1, h2, h3, h4, h5, h6, p, a, span, div, button, li, .counter-num, .stat-number, .why-card p, .item-text p, .footer p, .footer a, .lead-text, .closing-text, .page-header p {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* ========== NAVBAR WITH HAMBURGER MENU ========== */
+    .navbar {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      max-width: 1300px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 32px;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+      border-radius: 80px;
+      box-shadow: 0 8px 25px -8px rgba(0, 0, 0, 0.06);
+      z-index: 1000;
+      border: 1px solid rgba(255, 0, 73, 0.12);
+      transition: var(--transition);
+    }
+
+    .navbar.scrolled {
+      top: 0;
+      width: 100%;
+      border-radius: 0px;
+      padding: 12px 5%;
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .logo-link {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .logo img {
+      height: 42px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: var(--transition);
+      position: relative;
+      white-space: nowrap;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+      z-index: 1001;
+      flex-shrink: 0;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: var(--dark);
+      transition: var(--transition);
+      border-radius: 3px;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -6px);
+    }
+
+    .mobile-nav {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 70%;
+      max-width: 300px;
+      height: 100vh;
+      background: white;
+      box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
+      z-index: 999;
+      padding: 100px 30px 30px;
+      transition: right 0.4s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .mobile-nav.active {
+      right: 0;
+    }
+
+    .mobile-nav a {
+      text-decoration: none;
+      color: var(--dark);
+      font-size: 1.1rem;
+      font-weight: 500;
+      padding: 10px 0;
+      transition: var(--transition);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .mobile-nav a:hover {
+      color: var(--primary);
+      padding-left: 10px;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 998;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+    }
+
+    .overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* ========== PAGE HEADER ========== */
+    .page-header {
+      min-height: 50vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 150px 8% 80px;
+      background: linear-gradient(135deg, #FFF9FA 0%, #FFFFFF 50%, #F5F7FF 100%);
+      position: relative;
+    }
+
+    .page-header h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 20px;
+    }
+
+    .page-header h1 span {
+      color: var(--primary);
+    }
+
+    .page-header p {
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      color: var(--text-muted);
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* ========== INNOVATION SECTION ========== */
+    .innovation {
+      padding: 80px 8%;
+      background: var(--gray-bg);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .innovation-header {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 50px;
+    }
+
+    .innovation-header h2 {
+      font-size: clamp(1.6rem, 5vw, 3rem);
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 20px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .innovation-header h2::after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      background: var(--primary);
+    }
+
+    .innovation-header p {
+      font-size: clamp(0.9rem, 2.5vw, 1.15rem);
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-top: 20px;
+    }
+
+    .innovation-header p b {
+      color: var(--primary);
+      background: rgba(255, 0, 73, 0.08);
+      padding: 2px 10px;
+      border-radius: 30px;
+    }
+
+    .lead-text, .closing-text {
+      text-align: center;
+      color: #2D2D3A;
+      line-height: 1.7;
+    }
+
+    .lead-text {
+      font-size: clamp(0.9rem, 2.5vw, 1.05rem);
+      margin-bottom: 50px;
+    }
+
+    .closing-text {
+      font-size: clamp(0.85rem, 2.5vw, 1rem);
+      margin-top: 50px;
+    }
+
+    .specialties-horizontal {
+      display: flex;
+      flex-direction: row;
+      gap: 30px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .specialties-horizontal .item {
+      flex: 1;
+      min-width: 250px;
+      max-width: 350px;
+      background: var(--card-white);
+      border-radius: 24px;
+      padding: 2rem 1.5rem;
+      transition: var(--transition);
+      border: 1px solid rgba(0, 0, 0, 0.04);
+      box-shadow: var(--shadow-sm);
+      text-align: center;
+    }
+
+    .specialties-horizontal .item:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .specialties-horizontal .item-icon {
+      width: 70px;
+      height: 70px;
+      background: rgba(255, 0, 73, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 20px;
+      font-size: 2rem;
+      color: var(--primary);
+      margin: 0 auto 18px;
+      transition: var(--transition);
+    }
+
+    .specialties-horizontal .item:hover .item-icon {
+      background: var(--primary);
+      color: white;
+    }
+
+    .specialties-horizontal .item-text h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--dark);
+    }
+
+    .specialties-horizontal .item-text p {
+      color: #5A5A70;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    /* ========== STATS SECTION ========== */
+    .stats {
+      display: flex;
+      justify-content: center;
+      background: var(--dark);
+      padding: 70px 8%;
+      text-align: center;
+      gap: 50px;
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      flex: 1;
+      min-width: 160px;
+      max-width: 250px;
+    }
+
+    .stat-number {
+      font-size: clamp(2rem, 6vw, 3.2rem);
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+
+    .stats p {
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: 500;
+      font-size: clamp(0.8rem, 2vw, 1rem);
+    }
+
+    /* ========== VISION SECTION ========== */
+    .vision-section {
+      padding: 80px 8%;
+      background: white;
+    }
+
+    .vision-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+
+    .vision-content {
+      flex: 1;
+    }
+
+    .vision-content h2 {
+      font-size: clamp(1.6rem, 4vw, 2.5rem);
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: var(--dark);
+      position: relative;
+      display: inline-block;
+    }
+
+    .vision-content h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: var(--primary);
+    }
+
+    .vision-content p {
+      color: var(--text-muted);
+      line-height: 1.7;
+      font-size: clamp(0.9rem, 2.5vw, 1.05rem);
+    }
+
+    .vision-image {
+      flex: 1;
+    }
+
+    .vision-image img {
+      width: 100%;
+      border-radius: 24px;
+      box-shadow: var(--shadow-md);
+      transition: var(--transition);
+    }
+
+    .vision-image img:hover {
+      transform: scale(1.02);
+    }
+
+    /* ========== MISSION SECTION ========== */
+    .mission-section {
+      padding: 80px 8%;
+      background: var(--gray-bg);
+    }
+
+    .mission-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 60px;
+      flex-wrap: wrap;
+      flex-direction: row-reverse;
+    }
+
+    .mission-content {
+      flex: 1;
+    }
+
+    .mission-content h2 {
+      font-size: clamp(1.6rem, 4vw, 2.5rem);
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: var(--dark);
+      position: relative;
+      display: inline-block;
+    }
+
+    .mission-content h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: var(--primary);
+    }
+
+    .mission-content p {
+      color: var(--text-muted);
+      line-height: 1.7;
+      font-size: clamp(0.9rem, 2.5vw, 1.05rem);
+    }
+
+    .mission-image {
+      flex: 1;
+    }
+
+    .mission-image img {
+      width: 100%;
+      border-radius: 24px;
+      box-shadow: var(--shadow-md);
+      transition: var(--transition);
+    }
+
+    .mission-image img:hover {
+      transform: scale(1.02);
+    }
+
+    /* ========== WHY APPWARE SECTION ========== */
+    .why-appware {
+      padding: 80px 8%;
+      background: linear-gradient(135deg, #ffffff 0%, #fef5f7 100%);
+    }
+
+    .why-container {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .why-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 60px;
+    }
+
+    .why-header h2 {
+      font-size: clamp(1.6rem, 5vw, 2.8rem);
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 20px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .why-header h2::after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      background: var(--primary);
+    }
+
+    .why-header > p {
+      font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-top: 20px;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .why-card {
+      background: var(--card-white);
+      border-radius: 28px;
+      padding: 1.8rem;
+      transition: var(--transition);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .why-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .card-icon {
+      width: 55px;
+      height: 55px;
+      background: rgba(255, 0, 73, 0.1);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      transition: var(--transition);
+    }
+
+    .why-card:hover .card-icon {
+      background: var(--primary);
+    }
+
+    .card-icon i {
+      font-size: 1.6rem;
+      color: var(--primary);
+      transition: var(--transition);
+    }
+
+    .why-card:hover .card-icon i {
+      color: white;
+    }
+
+    .why-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--dark);
+    }
+
+    .why-card p {
+      color: var(--text-muted);
+      line-height: 1.6;
+      font-size: 0.9rem;
+    }
+
+    .why-result {
+      margin-top: 50px;
+      text-align: center;
+      padding: 30px;
+      background: linear-gradient(135deg, rgba(255, 0, 73, 0.05), rgba(255, 0, 73, 0.02));
+      border-radius: 30px;
+      border: 1px solid rgba(255, 0, 73, 0.1);
+    }
+
+    .why-result p {
+      font-size: clamp(0.95rem, 3vw, 1.1rem);
+      font-weight: 500;
+      color: var(--dark);
+    }
+
+    /* ========== FOOTER ========== */
+    .footer {
+      background: var(--dark);
+      color: #FFFFFF;
+      padding: 60px 8% 40px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .footer-col {
+      flex: 1;
+      min-width: 160px;
+    }
+
+    .footer-logo img {
+      height: 45px;
+      width: auto;
+      margin-bottom: 15px;
+    }
+
+    .footer-logo p {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.85rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: white;
+      font-size: 1.1rem;
+      transition: var(--transition);
+    }
+
+    .social-links a:hover {
+      background: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    .footer h4 {
+      font-size: 1rem;
+      margin-bottom: 15px;
+      font-weight: 600;
+      color: white;
+    }
+
+    .footer p, .footer a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      font-size: 0.85rem;
+      line-height: 1.8;
+      transition: var(--transition);
+    }
+
+    .footer a:hover {
+      color: var(--primary);
+      padding-left: 5px;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 30px;
+      margin-top: 15px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.5);
+      width: 100%;
+    }
+
+    /* ========== RESPONSIVE BREAKPOINTS ========== */
+    @media (max-width: 992px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .navbar { width: 95%; padding: 12px 24px; top: 15px; border-radius: 50px; }
+      .navbar.scrolled { border-radius: 0px; padding: 12px 5%; }
+      .page-header { padding: 130px 5% 60px; }
+      .vision-container, .mission-container { flex-direction: column; text-align: center; gap: 30px; }
+      .vision-content h2::after, .mission-content h2::after { left: 50%; transform: translateX(-50%); }
+      .stats { gap: 30px; padding: 50px 5%; }
+      .footer { flex-direction: column; text-align: center; }
+      .social-links { justify-content: center; }
+      .innovation { padding: 60px 5%; }
+      .why-appware { padding: 50px 5%; }
+      .custom-cursor { display: none; }
+      body, a, button { cursor: auto !important; }
+    }
+
+    @media (max-width: 768px) {
+      .page-header { padding: 160px 5% 50px; }
+      .page-header h1 { font-size: 1.8rem; }
+      .innovation-header h2 { font-size: 1.6rem; }
+      .specialties-horizontal { flex-direction: column; align-items: center; }
+      .specialties-horizontal .item { min-width: 100%; max-width: 100%; flex-direction: row; text-align: left; padding: 1.2rem; }
+      .specialties-horizontal .item-icon { margin: 0 15px 0 0; width: 55px; height: 55px; font-size: 1.5rem; }
+      .specialties-horizontal .item-text { text-align: left; }
+      .why-grid { gap: 20px; }
+      .footer { padding: 40px 5% 30px; }
+      .navbar { width: 95%; padding: 10px 20px; }
+      .logo img { height: 35px; }
+    }
+
+    @media (max-width: 480px) {
+      .page-header { padding: 180px 5% 40px; }
+      .page-header h1 { font-size: 1.6rem; }
+      .lead-text, .closing-text { font-size: 0.85rem; }
+      .stat-item { min-width: 130px; }
+      .stat-number { font-size: 1.8rem; }
+      .why-card { padding: 1.2rem; }
+      .navbar { width: 96%; padding: 8px 16px; }
+      .logo img { height: 30px; }
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="appsware-cursor"></div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="index.html" class="logo-link">
+      <div class="logo">
+        <img src="/appsware/assets/Appsware Technologies.jpg" alt="Appsware Logo">
+      </div>
+    </a>
+    
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="careers.html">Careers</a>
+      <a href="events.html">Events</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+    
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="careers.html">Careers</a>
+    <a href="events.html">Events</a>
+    <a href="contact.html">Contact Us</a>
+  </div>
+  
+  <div class="overlay" id="overlay"></div>
+
+  <!-- PAGE HEADER -->
+  <section class="page-header fade-up">
+    <div>
+      <h1>About <span>Appsware</span></h1>
+      <p>Engineering digital success through innovation and technical excellence since 2019</p>
+    </div>
+  </section>
+
+  <!-- INNOVATION SECTION -->
+  <section class="innovation fade-up">
+    <div class="container">
+      <div class="innovation-header">
+        <h2>Innovation Beyond Limits</h2>
+        <p>
+          Appsware merges advanced technology with an innovative spirit driven by the principle of<br><b>“We Can.”</b>
+          We operate as a unified engineering and growth team delivering high-impact digital products at global scale.
+        </p>
+      </div>
+
+      <div class="innovation-text-centered">
+        <p class="lead-text">
+          We don't just build apps — we engineer ecosystems designed for performance, scalability, and market dominance.
+          Every product is crafted with precision engineering, growth intelligence, and Play Store optimization at its core.
+        </p>
+
+        <div class="specialties-horizontal">
+          <div class="item">
+            <div class="item-icon"><i class="fas fa-code"></i></div>
+            <div class="item-text">
+              <h3>Mobile Development</h3>
+              <p>High-performance Hybrid (Flutter, React Native) and Native iOS applications built for scale, speed, and stability.</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="item-icon"><i class="fab fa-google"></i></div>
+            <div class="item-text">
+              <h3>Google Ads Growth Engine</h3>
+              <p>Data-driven acquisition strategies powered by advanced targeting, ROAS optimization, and funnel engineering.</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="item-icon"><i class="fab fa-google-play"></i></div>
+            <div class="item-text">
+              <h3>Play Store Excellence</h3>
+              <p>End-to-end ASO, conversion optimization, and ranking strategies that push apps to top positions globally.</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="closing-text">
+          By staying ahead of global digital trends, Appsware consistently exceeds performance benchmarks and delivers measurable, scalable growth for every partner.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS SECTION -->
+  <section class="stats fade-up">
+    <div class="stat-item">
+      <div class="stat-number"><span class="counter-num" data-target="50">0</span>+</div>
+      <p>Published Applications</p>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number"><span class="counter-num" data-target="100">0</span>M+</div>
+      <p>Total Play Store Installs</p>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number"><span class="counter-num" data-target="20">0</span>+</div>
+      <p>Elite Professionals</p>
+    </div>
+  </section>
+
+  <!-- VISION SECTION -->
+  <section class="vision-section fade-up">
+    <div class="vision-container">
+      <div class="vision-content">
+        <h2>Vision of Appsware Technologies</h2>
+        <p>Our vision is to propel Appsware Technologies to Unicorn status within the global tech ecosystem. We are dedicated to achieving rapid, sustainable growth by leveraging disruptive innovation, superior engineering, and a steadfast commitment to delivering digital solutions that set new industry benchmarks.</p>
+      </div>
+      <div class="vision-image">
+        <img src="/appsware/assets/vission-image.jpg" alt="Vision Illustration">
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION SECTION -->
+  <section class="mission-section fade-up">
+    <div class="mission-container">
+      <div class="mission-content">
+        <h2>Mission</h2>
+        <p>Appsware Technologies is dedicated to bridging the gap between complex technology and human potential. Our mission is to pioneer innovative digital solutions that foster collaboration and spark imagination within a secure, ethical framework.</p>
+      </div>
+      <div class="mission-image">
+        <img src="/appsware/assets/mission-image.jpg" alt="Mission Illustration">
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY APPWARE SECTION -->
+  <section class="why-appware fade-up">
+    <div class="why-container">
+      <div class="why-header">
+        <h2>Why Appsware?</h2>
+        <p>Appsware Technologies transforms complex ideas into scalable, market-leading realities. Since 2019, we have specialized in engineering digital success through innovation and technical excellence.</p>
+      </div>
+
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+          <h3>Proven Scale</h3>
+          <p>With 50+ apps and 100M+ Play Store installs, we have a track record of building Android products that resonate globally.</p>
+        </div>
+        <div class="why-card">
+          <div class="card-icon"><i class="fas fa-cubes"></i></div>
+          <h3>Complete Solutions</h3>
+          <p>From specialized Android Development and Python Engineering to Google Ads and Play Store Optimization, we cover the full digital lifecycle.</p>
+        </div>
+        <div class="why-card">
+          <div class="card-icon"><i class="fas fa-hand-fist"></i></div>
+          <h3>"We Can" Philosophy</h3>
+          <p>Our unified team leverages collective expertise to solve complex challenges and deliver high-impact results.</p>
+        </div>
+        <div class="why-card">
+          <div class="card-icon"><i class="fas fa-microchip"></i></div>
+          <h3>Future-Ready</h3>
+          <p>We integrate AI, 3D modeling, and data-driven marketing to keep your technology at the forefront of the industry.</p>
+        </div>
+        <div class="why-card">
+          <div class="card-icon"><i class="fas fa-rocket"></i></div>
+          <h3>Unicorn Vision</h3>
+          <p>Led by Mr. Maaz Bin Jamil, we are driven by hyper-growth, security, and the goal of becoming a global IT leader.</p>
+        </div>
+        <div class="why-card">
+          <div class="card-icon"><i class="fas fa-medal"></i></div>
+          <h3>The Result</h3>
+          <p>We merge the agility of a tech disruptor with the precision of industry experts to dominate the Android ecosystem.</p>
+        </div>
+      </div>
+
+      <div class="why-result">
+        <p><i class="fas fa-quote-left"></i> The Appsware Edge: Engineering digital success through innovation and technical excellence. <i class="fas fa-quote-right"></i></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-col">
+      <div class="footer-logo">
+        <img src="/appsware/assets/footer logo.png" alt="Appsware Logo">
+        <p>"We build high-impact mobile technologies that prioritize maximum efficiency and a seamless user experience."</p>
+      </div>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/company/appswaretechnologies/" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <p><a href="index.html">Home</a></p>
+      <p><a href="about.html">About Us</a></p>
+      <p><a href="careers.html">Careers</a></p>
+      <p><a href="events.html">Events</a></p>
+      <p><a href="contact.html">Contact Us</a></p>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <p>hello@appsware.com</p>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Appsware Technologies — Innovation Beyond Limits</p>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Hamburger Menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+    const overlay = document.getElementById('overlay');
+
+    function toggleMenu() {
+      hamburger.classList.toggle('active');
+      mobileNav.classList.toggle('active');
+      overlay.classList.toggle('active');
+      document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+    }
+
+    hamburger.addEventListener('click', toggleMenu);
+    overlay.addEventListener('click', toggleMenu);
+
+    document.querySelectorAll('.mobile-nav a').forEach(link => {
+      link.addEventListener('click', toggleMenu);
+    });
+
+    // Counter animation
+    function animateCounter(element, target) {
+      let current = 0;
+      const increment = target / 60;
+      const stepTime = 2000 / 60;
+      
+      function updateCounter() {
+        current += increment;
+        if (current < target) {
+          element.textContent = Math.floor(current);
+          setTimeout(updateCounter, stepTime);
+        } else {
+          element.textContent = target;
+        }
+      }
+      updateCounter();
+    }
+
+    let countersStarted = false;
+    const statsSection = document.querySelector('.stats');
+    
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !countersStarted) {
+          countersStarted = true;
+          const counters = document.querySelectorAll('.counter-num');
+          const targets = [50, 100, 20];
+          counters.forEach((counter, index) => {
+            animateCounter(counter, targets[index]);
+          });
+        }
+      });
+    }, { threshold: 0.3 });
+    
+    if (statsSection) {
+      counterObserver.observe(statsSection);
+    }
+
+    // Fade-up animation
+    const fadeElements = document.querySelectorAll('.fade-up');
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    
+    fadeElements.forEach(element => {
+      fadeObserver.observe(element);
+    });
+
+    // Custom Cursor - Only on non-touch devices
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches && window.innerWidth > 992) {
+      const cursor = document.querySelector('.appsware-cursor');
+      
+      if (cursor) {
+        document.addEventListener('mousemove', (e) => {
+          cursor.style.left = e.clientX + 'px';
+          cursor.style.top = e.clientY + 'px';
+        });
+
+        document.addEventListener('mousedown', () => {
+          cursor.classList.add('clicking');
+        });
+
+        document.addEventListener('mouseup', () => {
+          cursor.classList.remove('clicking');
+        });
+      }
+    }
+
+    console.log('Appsware Technologies — About Page');
+  </script>
+</body>
+</html>

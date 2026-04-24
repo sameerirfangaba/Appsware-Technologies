@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Appsware Technologies | Contact Us</title>
+  
+  <!-- ========== FAVICON SETUP - ASSETS FOLDER ========== -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/appsware/assets/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/appsware/assets/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/appsware/assets/favicon.png">
+  <link rel="shortcut icon" type="image/png" href="/appsware/assets/favicon.png">
+  
+  <!-- Google Fonts - Poppins Primary -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <style>
+    :root {
+      --primary: #FF0049;
+      --dark: #0A0A0F;
+      --gray-bg: #F8F9FC;
+      --card-white: #FFFFFF;
+      --text-dark: #1A1A2E;
+      --text-muted: #5A5A70;
+      --shadow-sm: 0 10px 30px -12px rgba(0, 0, 0, 0.08);
+      --shadow-md: 0 20px 35px -12px rgba(0, 0, 0, 0.12);
+      --shadow-hover: 0 30px 40px -16px rgba(255, 0, 73, 0.15);
+      --transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    }
+
+    /* Custom Cursor Styling */
+    body, a, button {
+      cursor: none !important;
+    }
+
+    .appsware-cursor {
+      width: 32px;
+      height: 32px;
+      background-image: url('/appsware/assets/cursor.jpg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: transform 0.1s ease-out;
+    }
+
+    .appsware-cursor.clicking {
+      transform: translate(-50%, -50%) scale(0.8);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #FFFFFF;
+      color: var(--text-dark);
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    h1, h2, h3, h4, h5, h6, p, a, span, div, button, li, .footer p, .footer a, .page-header p {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* ========== NAVBAR ========== */
+    .navbar {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      max-width: 1300px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 32px;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+      border-radius: 80px;
+      box-shadow: 0 8px 25px -8px rgba(0, 0, 0, 0.06);
+      z-index: 1000;
+      border: 1px solid rgba(255, 0, 73, 0.12);
+      transition: var(--transition);
+    }
+
+    .navbar.scrolled {
+      top: 0;
+      width: 100%;
+      border-radius: 0px;
+      padding: 12px 5%;
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .logo-link {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .logo img {
+      height: 42px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: var(--transition);
+      position: relative;
+      white-space: nowrap;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+      z-index: 1001;
+      flex-shrink: 0;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: var(--dark);
+      transition: var(--transition);
+      border-radius: 3px;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -6px);
+    }
+
+    .mobile-nav {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 70%;
+      max-width: 300px;
+      height: 100vh;
+      background: white;
+      box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
+      z-index: 999;
+      padding: 100px 30px 30px;
+      transition: right 0.4s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .mobile-nav.active {
+      right: 0;
+    }
+
+    .mobile-nav a {
+      text-decoration: none;
+      color: var(--dark);
+      font-size: 1.1rem;
+      font-weight: 500;
+      padding: 10px 0;
+      transition: var(--transition);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .mobile-nav a:hover {
+      color: var(--primary);
+      padding-left: 10px;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 998;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+    }
+
+    .overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* ========== PAGE HEADER ========== */
+    .page-header {
+      min-height: 50vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 150px 8% 80px;
+      background: linear-gradient(135deg, #FFF9FA 0%, #FFFFFF 50%, #F5F7FF 100%);
+    }
+
+    .page-header h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 20px;
+    }
+
+    .page-header h1 span {
+      color: var(--primary);
+    }
+
+    .page-header p {
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      color: var(--text-muted);
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* ========== CONTACT SECTION ========== */
+    .contact-section {
+      padding: 80px 8%;
+    }
+
+    .contact-container {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: flex;
+      gap: 50px;
+      flex-wrap: wrap;
+    }
+
+    /* Contact Info Cards */
+    .contact-info {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .info-card {
+      background: var(--card-white);
+      border-radius: 24px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      border: 1px solid rgba(0, 0, 0, 0.04);
+    }
+
+    .info-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--primary);
+    }
+
+    .info-icon {
+      width: 60px;
+      height: 60px;
+      background: rgba(255, 0, 73, 0.1);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .info-icon i {
+      font-size: 1.8rem;
+      color: var(--primary);
+    }
+
+    .info-card h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--dark);
+    }
+
+    .info-card p {
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+
+    .info-card a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .info-card a:hover {
+      color: var(--primary);
+    }
+
+    /* Contact Form */
+    .contact-form-wrapper {
+      flex: 1;
+      min-width: 300px;
+      background: var(--card-white);
+      border-radius: 30px;
+      padding: 40px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .contact-form-wrapper h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 10px;
+    }
+
+    .contact-form-wrapper p {
+      color: var(--text-muted);
+      margin-bottom: 30px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 15px 20px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 16px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.95rem;
+      transition: var(--transition);
+      background: var(--gray-bg);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(255, 0, 73, 0.1);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .submit-btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 14px 30px;
+      border-radius: 40px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      width: 100%;
+    }
+
+    .submit-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    /* Google Map Section */
+    .map-section {
+      padding: 0 8% 80px;
+    }
+
+    .map-container {
+      max-width: 1300px;
+      margin: 0 auto;
+      border-radius: 30px;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 400px;
+      border: none;
+      display: block;
+    }
+
+    .map-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .map-header h2 {
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 15px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .map-header h2::after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: var(--primary);
+    }
+
+    .map-header p {
+      color: var(--text-muted);
+      margin-top: 20px;
+    }
+
+    /* Social Media Section */
+    .social-section {
+      padding: 60px 8%;
+      background: var(--gray-bg);
+      text-align: center;
+    }
+
+    .social-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .social-container h2 {
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 15px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .social-container h2::after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: var(--primary);
+    }
+
+    .social-container p {
+      color: var(--text-muted);
+      margin: 20px 0 40px;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    .social-icon {
+      width: 65px;
+      height: 65px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+      text-decoration: none;
+    }
+
+    .social-icon i {
+      font-size: 1.8rem;
+      color: var(--dark);
+      transition: var(--transition);
+    }
+
+    .social-icon:hover {
+      background: var(--primary);
+      transform: translateY(-5px);
+    }
+
+    .social-icon:hover i {
+      color: white;
+    }
+
+    /* ========== FOOTER ========== */
+    .footer {
+      background: var(--dark);
+      color: #FFFFFF;
+      padding: 60px 8% 40px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .footer-col {
+      flex: 1;
+      min-width: 160px;
+    }
+
+    .footer-logo img {
+      height: 45px;
+      width: auto;
+      margin-bottom: 15px;
+    }
+
+    .footer-logo p {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.85rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: white;
+      font-size: 1.1rem;
+      transition: var(--transition);
+    }
+
+    .social-links a:hover {
+      background: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    .footer h4 {
+      font-size: 1rem;
+      margin-bottom: 15px;
+      font-weight: 600;
+      color: white;
+    }
+
+    .footer p, .footer a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      font-size: 0.85rem;
+      line-height: 1.8;
+      transition: var(--transition);
+    }
+
+    .footer a:hover {
+      color: var(--primary);
+      padding-left: 5px;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 30px;
+      margin-top: 15px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.5);
+      width: 100%;
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 992px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .navbar { width: 95%; padding: 12px 24px; top: 15px; border-radius: 50px; }
+      .navbar.scrolled { border-radius: 0px; padding: 12px 5%; }
+      .page-header { padding: 130px 5% 60px; }
+      .contact-container { flex-direction: column; }
+      .footer { flex-direction: column; text-align: center; }
+      .social-links { justify-content: center; }
+      .custom-cursor { display: none; }
+      body, a, button { cursor: auto !important; }
+    }
+
+    @media (max-width: 768px) {
+      .page-header { padding: 160px 5% 50px; }
+      .page-header h1 { font-size: 1.8rem; }
+      .contact-form-wrapper { padding: 25px; }
+      .navbar { width: 95%; padding: 10px 20px; }
+      .logo img { height: 35px; }
+      .map-container iframe { height: 300px; }
+      .social-icon { width: 55px; height: 55px; }
+      .social-icon i { font-size: 1.5rem; }
+    }
+
+    @media (max-width: 480px) {
+      .page-header { padding: 180px 5% 40px; }
+      .page-header h1 { font-size: 1.6rem; }
+      .info-card { padding: 20px; }
+      .contact-form-wrapper { padding: 20px; }
+      .navbar { width: 96%; padding: 8px 16px; }
+      .logo img { height: 30px; }
+      .map-container iframe { height: 250px; }
+      .social-icon { width: 48px; height: 48px; }
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="appsware-cursor"></div>
+
+  <nav class="navbar">
+    <a href="index.html" class="logo-link">
+      <div class="logo">
+        <img src="/appsware/assets/Appsware Technologies.jpg" alt="Appsware Logo">
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="careers.html">Careers</a>
+      <a href="events.html">Events</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="careers.html">Careers</a>
+    <a href="events.html">Events</a>
+    <a href="contact.html">Contact Us</a>
+  </div>
+  <div class="overlay" id="overlay"></div>
+
+  <section class="page-header fade-up">
+    <div>
+      <h1>Get in <span>Touch</span></h1>
+      <p>We'd love to hear from you. Reach out to us for any inquiries or collaborations.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section class="contact-section fade-up">
+    <div class="contact-container">
+      <!-- Contact Info Cards -->
+      <div class="contact-info">
+        <div class="info-card">
+          <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <h3>Visit Us</h3>
+          <p>Noor Trade Center, Block 13,<br>Gulshan-e-Iqbal, Karachi,<br>Pakistan</p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon"><i class="fas fa-phone-alt"></i></div>
+          <h3>Call Us</h3>
+          <p><a href="tel:+923001234567">+92 300 1234567</a></p>
+          <p><a href="tel:+922112345678">+92 21 12345678</a></p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon"><i class="fas fa-envelope"></i></div>
+          <h3>Email Us</h3>
+          <p><a href="mailto:info@appsware.com">info@appsware.com</a></p>
+          <p><a href="mailto:hello@appsware.com">hello@appsware.com</a></p>
+        </div>
+        <div class="info-card">
+          <div class="info-icon"><i class="fas fa-clock"></i></div>
+          <h3>Working Hours</h3>
+          <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+          <p>Saturday: Closed</p>
+          <p>Sunday: Closed</p>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-form-wrapper">
+        <h2>Send us a Message</h2>
+        <p>Fill out the form below and we'll get back to you as soon as possible.</p>
+        <form id="contactForm">
+          <div class="form-group">
+            <input type="text" placeholder="Your Name *" required>
+          </div>
+          <div class="form-group">
+            <input type="email" placeholder="Your Email *" required>
+          </div>
+          <div class="form-group">
+            <input type="tel" placeholder="Phone Number">
+          </div>
+          <div class="form-group">
+            <input type="text" placeholder="Subject">
+          </div>
+          <div class="form-group">
+            <textarea placeholder="Your Message *" required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Send Message <i class="fas fa-paper-plane"></i></button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- GOOGLE MAP SECTION -->
+  <section class="map-section fade-up">
+    <div class="map-header">
+      <h2>Find Us Here</h2>
+      <p>Noor Trade Center, Gulshan-e-Iqbal, Karachi, Pakistan</p>
+    </div>
+    <div class="map-container">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d619.5171705584714!2d67.07768224145809!3d24.904698855429395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33fadfdccdc75%3A0xfc8311f4dda01efa!2sNoor%20Trade%20Centre!5e0!3m2!1sen!2s!4v1776959669007!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </section>
+
+  <!-- SOCIAL MEDIA SECTION -->
+  <section class="social-section fade-up">
+    <div class="social-container">
+      <h2>Connect With Us</h2>
+      <p>Follow us on social media to stay updated with our latest news and events</p>
+      <div class="social-icons">
+        <a href="https://www.linkedin.com/company/appswaretechnologies/" target="_blank" class="social-icon">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <!-- <a href="#" target="_blank" class="social-icon">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#" target="_blank" class="social-icon">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#" target="_blank" class="social-icon">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="#" target="_blank" class="social-icon">
+          <i class="fab fa-youtube"></i>
+        </a> -->
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-col">
+      <div class="footer-logo">
+        <img src="/appsware/assets/footer logo.png" alt="Appsware Logo">
+        <p>"Engineering ecosystems for global dominance."</p>
+      </div>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/company/appswaretechnologies/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <p><a href="index.html">Home</a></p>
+      <p><a href="about.html">About Us</a></p>
+      <p><a href="careers.html">Careers</a></p>
+      <p><a href="events.html">Events</a></p>
+      <p><a href="contact.html">Contact Us</a></p>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <p>hello@appsware.com</p>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Appsware Technologies — Innovation Beyond Limits</p>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) navbar.classList.add('scrolled');
+      else navbar.classList.remove('scrolled');
+    });
+
+    // Hamburger Menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+    const overlay = document.getElementById('overlay');
+
+    function toggleMenu() {
+      hamburger.classList.toggle('active');
+      mobileNav.classList.toggle('active');
+      overlay.classList.toggle('active');
+      document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+    }
+
+    hamburger.addEventListener('click', toggleMenu);
+    overlay.addEventListener('click', toggleMenu);
+    document.querySelectorAll('.mobile-nav a').forEach(link => link.addEventListener('click', toggleMenu));
+
+    // Fade-up animation
+    const fadeElements = document.querySelectorAll('.fade-up');
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    fadeElements.forEach(element => fadeObserver.observe(element));
+
+    // Form Submission Alert
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Thank you for your message! We will get back to you soon.');
+        contactForm.reset();
+      });
+    }
+
+    // Custom Cursor
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches && window.innerWidth > 992) {
+      const cursor = document.querySelector('.appsware-cursor');
+      if (cursor) {
+        document.addEventListener('mousemove', (e) => {
+          cursor.style.left = e.clientX + 'px';
+          cursor.style.top = e.clientY + 'px';
+        });
+        document.addEventListener('mousedown', () => cursor.classList.add('clicking'));
+        document.addEventListener('mouseup', () => cursor.classList.remove('clicking'));
+      }
+    }
+  </script>
+</body>
+</html>
