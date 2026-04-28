@@ -31,11 +31,14 @@
       --transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
     }
 
-    /* Custom Cursor Styling */
-    body, a, button {
-      cursor: none !important;
+    /* Hide default cursor globally on desktop only */
+    @media (hover: hover) and (pointer: fine) and (min-width: 1025px) {
+      body, a, button {
+        cursor: none !important;
+      }
     }
 
+    /* Custom Cursor Styling */
     .appsware-cursor {
       width: 32px;
       height: 32px;
@@ -71,7 +74,7 @@
       font-family: 'Poppins', sans-serif;
     }
 
-    /* ========== NAVBAR ========== */
+    /* ========== RESPONSIVE NAVBAR ========== */
     .navbar {
       position: fixed;
       top: 20px;
@@ -184,7 +187,7 @@
       top: 0;
       right: -100%;
       width: 70%;
-      max-width: 300px;
+      max-width: 280px;
       height: 100vh;
       background: white;
       box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
@@ -233,6 +236,79 @@
       visibility: visible;
     }
 
+    /* Desktop Navigation */
+    @media (min-width: 993px) {
+      .navbar {
+        width: 90%;
+        padding: 12px 32px;
+      }
+    }
+
+    /* Tablet Navigation */
+    @media (max-width: 992px) {
+      .navbar {
+        width: 95%;
+        padding: 12px 24px;
+        top: 15px;
+        border-radius: 50px;
+      }
+      .navbar.scrolled {
+        border-radius: 0px;
+        padding: 12px 5%;
+      }
+      .nav-links {
+        display: none;
+      }
+      .hamburger {
+        display: flex;
+      }
+      .logo img {
+        height: 38px;
+      }
+    }
+
+    /* Mobile Navigation */
+    @media (max-width: 768px) {
+      .navbar {
+        width: 96%;
+        padding: 10px 20px;
+      }
+      .logo img {
+        height: 35px;
+      }
+      .navbar.scrolled {
+        padding: 10px 5%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .navbar {
+        width: 97%;
+        padding: 8px 16px;
+        top: 10px;
+        border-radius: 40px;
+      }
+      .logo img {
+        height: 30px;
+      }
+      .navbar.scrolled {
+        padding: 8px 5%;
+        border-radius: 0px;
+      }
+      .hamburger span {
+        width: 22px;
+        height: 2px;
+      }
+      .mobile-nav {
+        width: 80%;
+        max-width: 250px;
+        padding: 90px 20px 20px;
+      }
+      .mobile-nav a {
+        font-size: 1rem;
+      }
+    }
+
     /* ========== PAGE HEADER ========== */
     .page-header {
       min-height: 50vh;
@@ -261,6 +337,30 @@
       max-width: 700px;
       margin: 0 auto;
       line-height: 1.6;
+    }
+
+    @media (max-width: 992px) {
+      .page-header {
+        padding: 130px 5% 60px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .page-header {
+        padding: 160px 5% 50px;
+      }
+      .page-header h1 {
+        font-size: 1.8rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .page-header {
+        padding: 180px 5% 40px;
+      }
+      .page-header h1 {
+        font-size: 1.6rem;
+      }
     }
 
     /* ========== CONTACT SECTION ========== */
@@ -401,11 +501,51 @@
     }
 
     .submit-btn:hover {
-      background: var(--primary-dark);
+      background: color-mix(in srgb, var(--primary) 80%, black);
       transform: translateY(-2px);
     }
 
-    /* Google Map Section */
+    @media (max-width: 992px) {
+      .contact-section {
+        padding: 60px 5%;
+      }
+      .contact-container {
+        flex-direction: column;
+      }
+      .contact-form-wrapper {
+        padding: 30px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .contact-form-wrapper {
+        padding: 25px;
+      }
+      .info-card {
+        padding: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .contact-form-wrapper {
+        padding: 20px;
+      }
+      .info-card {
+        padding: 18px;
+      }
+      .info-icon {
+        width: 50px;
+        height: 50px;
+      }
+      .info-icon i {
+        font-size: 1.5rem;
+      }
+      .info-card h3 {
+        font-size: 1.2rem;
+      }
+    }
+
+    /* ========== GOOGLE MAP SECTION ========== */
     .map-section {
       padding: 0 8% 80px;
     }
@@ -455,7 +595,25 @@
       margin-top: 20px;
     }
 
-    /* Social Media Section */
+    @media (max-width: 992px) {
+      .map-section {
+        padding: 0 5% 60px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .map-container iframe {
+        height: 300px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .map-container iframe {
+        height: 250px;
+      }
+    }
+
+    /* ========== SOCIAL MEDIA SECTION ========== */
     .social-section {
       padding: 60px 8%;
       background: var(--gray-bg);
@@ -525,6 +683,35 @@
 
     .social-icon:hover i {
       color: white;
+    }
+
+    @media (max-width: 992px) {
+      .social-section {
+        padding: 50px 5%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .social-icon {
+        width: 55px;
+        height: 55px;
+      }
+      .social-icon i {
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .social-icon {
+        width: 48px;
+        height: 48px;
+      }
+      .social-icon i {
+        font-size: 1.3rem;
+      }
+      .social-icons {
+        gap: 15px;
+      }
     }
 
     /* ========== FOOTER ========== */
@@ -610,42 +797,18 @@
       width: 100%;
     }
 
-    /* ========== RESPONSIVE ========== */
     @media (max-width: 992px) {
-      .nav-links { display: none; }
-      .hamburger { display: flex; }
-      .navbar { width: 95%; padding: 12px 24px; top: 15px; border-radius: 50px; }
-      .navbar.scrolled { border-radius: 0px; padding: 12px 5%; }
-      .page-header { padding: 130px 5% 60px; }
-      .contact-container { flex-direction: column; }
-      .footer { flex-direction: column; text-align: center; }
-      .social-links { justify-content: center; }
-      .custom-cursor { display: none; }
-      body, a, button { cursor: auto !important; }
+      .footer {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 5% 30px;
+      }
+      .social-links {
+        justify-content: center;
+      }
     }
 
-    @media (max-width: 768px) {
-      .page-header { padding: 160px 5% 50px; }
-      .page-header h1 { font-size: 1.8rem; }
-      .contact-form-wrapper { padding: 25px; }
-      .navbar { width: 95%; padding: 10px 20px; }
-      .logo img { height: 35px; }
-      .map-container iframe { height: 300px; }
-      .social-icon { width: 55px; height: 55px; }
-      .social-icon i { font-size: 1.5rem; }
-    }
-
-    @media (max-width: 480px) {
-      .page-header { padding: 180px 5% 40px; }
-      .page-header h1 { font-size: 1.6rem; }
-      .info-card { padding: 20px; }
-      .contact-form-wrapper { padding: 20px; }
-      .navbar { width: 96%; padding: 8px 16px; }
-      .logo img { height: 30px; }
-      .map-container iframe { height: 250px; }
-      .social-icon { width: 48px; height: 48px; }
-    }
-
+    /* Animation Classes */
     .fade-up {
       opacity: 0;
       transform: translateY(30px);
@@ -660,7 +823,7 @@
 </head>
 <body>
 
-  <div class="appsware-cursor"></div>
+  <div class="appsware-cursor" style="display: none;"></div>
 
   <nav class="navbar">
     <a href="index.html" class="logo-link">
@@ -775,18 +938,6 @@
         <a href="https://www.linkedin.com/company/appswaretechnologies/" target="_blank" class="social-icon">
           <i class="fab fa-linkedin-in"></i>
         </a>
-        <!-- <a href="#" target="_blank" class="social-icon">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="#" target="_blank" class="social-icon">
-          <i class="fab fa-twitter"></i>
-        </a>
-        <a href="#" target="_blank" class="social-icon">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="#" target="_blank" class="social-icon">
-          <i class="fab fa-youtube"></i>
-        </a> -->
       </div>
     </div>
   </section>
@@ -820,6 +971,14 @@
   </footer>
 
   <script>
+    // Show/hide custom cursor based on device
+    const cursor = document.querySelector('.appsware-cursor');
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches && window.innerWidth > 992) {
+      if (cursor) cursor.style.display = 'block';
+    } else {
+      if (cursor) cursor.style.display = 'none';
+    }
+
     // Navbar scroll effect
     window.addEventListener('scroll', function() {
       const navbar = document.querySelector('.navbar');
@@ -862,17 +1021,14 @@
       });
     }
 
-    // Custom Cursor
-    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches && window.innerWidth > 992) {
-      const cursor = document.querySelector('.appsware-cursor');
-      if (cursor) {
-        document.addEventListener('mousemove', (e) => {
-          cursor.style.left = e.clientX + 'px';
-          cursor.style.top = e.clientY + 'px';
-        });
-        document.addEventListener('mousedown', () => cursor.classList.add('clicking'));
-        document.addEventListener('mouseup', () => cursor.classList.remove('clicking'));
-      }
+    // Custom Cursor Movement
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches && window.innerWidth > 992 && cursor) {
+      document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+      });
+      document.addEventListener('mousedown', () => cursor.classList.add('clicking'));
+      document.addEventListener('mouseup', () => cursor.classList.remove('clicking'));
     }
   </script>
 </body>
