@@ -75,21 +75,21 @@
       font-family: 'Poppins', sans-serif;
     }
 
-    /* ========== RESPONSIVE NAVBAR ========== */
+    /* ========== NAVBAR - FULLY RESPONSIVE FOR ALL SCREEN SIZES ========== */
     .navbar {
       position: fixed;
-      top: 20px;
+      top: clamp(15px, 2vw, 25px);
       left: 50%;
       transform: translateX(-50%);
       width: 90%;
-      max-width: 1300px;
+      max-width: 1400px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 12px 32px;
+      padding: clamp(10px, 1.2vw, 18px) clamp(20px, 3vw, 45px);
       background: rgba(255, 255, 255, 0.96);
       backdrop-filter: blur(12px);
-      border-radius: 80px;
+      border-radius: clamp(40px, 5vw, 80px);
       box-shadow: 0 8px 25px -8px rgba(0, 0, 0, 0.06);
       z-index: 1000;
       border: 1px solid rgba(255, 0, 73, 0.12);
@@ -99,8 +99,8 @@
     .navbar.scrolled {
       top: 0;
       width: 100%;
-      border-radius: 0px;
-      padding: 12px 5%;
+      border-radius: 0;
+      padding: clamp(8px, 1vw, 15px) clamp(20px, 4vw, 5%);
       background: rgba(255, 255, 255, 0.98);
       box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
     }
@@ -113,14 +113,14 @@
     }
 
     .logo img {
-      height: 42px;
+      height: clamp(35px, 4vw, 50px);
       width: auto;
       object-fit: contain;
     }
 
     .nav-links {
       display: flex;
-      gap: 28px;
+      gap: clamp(15px, 2vw, 40px);
       align-items: center;
       flex-wrap: wrap;
     }
@@ -129,7 +129,7 @@
       text-decoration: none;
       color: var(--dark);
       font-weight: 500;
-      font-size: 0.95rem;
+      font-size: clamp(0.85rem, 1.2vw, 1.05rem);
       transition: var(--transition);
       position: relative;
       white-space: nowrap;
@@ -158,13 +158,13 @@
       display: none;
       flex-direction: column;
       cursor: pointer;
-      gap: 5px;
+      gap: clamp(4px, 0.8vw, 6px);
       z-index: 1001;
       flex-shrink: 0;
     }
 
     .hamburger span {
-      width: 25px;
+      width: clamp(22px, 3vw, 27px);
       height: 3px;
       background: var(--dark);
       transition: var(--transition);
@@ -188,7 +188,7 @@
       top: 0;
       right: -100%;
       width: 70%;
-      max-width: 280px;
+      max-width: 300px;
       height: 100vh;
       background: white;
       box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
@@ -237,15 +237,65 @@
       visibility: visible;
     }
 
-    /* Desktop Navigation */
-    @media (min-width: 993px) {
+    /* NAVBAR RESPONSIVE BREAKPOINTS FOR ALL SCREENS */
+    @media (min-width: 1921px) {
       .navbar {
-        width: 90%;
-        padding: 12px 32px;
+        max-width: 1800px;
+        padding: 18px 50px;
+      }
+      .nav-links {
+        gap: 45px;
+      }
+      .nav-links a {
+        font-size: 1.1rem;
+      }
+      .logo img {
+        height: 55px;
       }
     }
 
-    /* Tablet Navigation */
+    @media (min-width: 1601px) and (max-width: 1920px) {
+      .navbar {
+        max-width: 1500px;
+        padding: 15px 40px;
+      }
+      .nav-links {
+        gap: 35px;
+      }
+      .nav-links a {
+        font-size: 1rem;
+      }
+      .logo img {
+        height: 48px;
+      }
+    }
+
+    @media (min-width: 1201px) and (max-width: 1600px) {
+      .navbar {
+        max-width: 1300px;
+        padding: 12px 35px;
+      }
+      .nav-links {
+        gap: 28px;
+      }
+      .logo img {
+        height: 42px;
+      }
+    }
+
+    @media (min-width: 993px) and (max-width: 1200px) {
+      .navbar {
+        width: 92%;
+        padding: 12px 30px;
+      }
+      .nav-links {
+        gap: 22px;
+      }
+      .nav-links a {
+        font-size: 0.9rem;
+      }
+    }
+
     @media (max-width: 992px) {
       .navbar {
         width: 95%;
@@ -268,7 +318,6 @@
       }
     }
 
-    /* Mobile Navigation */
     @media (max-width: 768px) {
       .navbar {
         width: 96%;
@@ -317,13 +366,12 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 150px 8% 80px;
+      padding: clamp(120px, 15vh, 180px) clamp(20px, 5vw, 8%) clamp(60px, 8vh, 100px);
       background: linear-gradient(135deg, #FFF9FA 0%, #FFFFFF 50%, #F5F7FF 100%);
-      position: relative;
     }
 
     .page-header h1 {
-      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-size: clamp(2rem, 4vw, 3.8rem);
       font-weight: 800;
       color: var(--dark);
       margin-bottom: 20px;
@@ -334,11 +382,21 @@
     }
 
     .page-header p {
-      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      font-size: clamp(1rem, 1.5vw, 1.3rem);
       color: var(--text-muted);
       max-width: 700px;
       margin: 0 auto;
       line-height: 1.6;
+    }
+
+    @media (min-width: 1921px) {
+      .page-header h1 {
+        font-size: 4.5rem;
+      }
+      .page-header p {
+        font-size: 1.4rem;
+        max-width: 900px;
+      }
     }
 
     @media (max-width: 992px) {
@@ -367,23 +425,23 @@
 
     /* ========== INNOVATION SECTION ========== */
     .innovation {
-      padding: 80px 8%;
+      padding: clamp(60px, 8vh, 100px) clamp(20px, 5vw, 8%);
       background: var(--gray-bg);
     }
 
     .container {
-      max-width: 1200px;
+      max-width: 1300px;
       margin: 0 auto;
     }
 
     .innovation-header {
       text-align: center;
-      max-width: 800px;
+      max-width: 850px;
       margin: 0 auto 50px;
     }
 
     .innovation-header h2 {
-      font-size: clamp(1.6rem, 5vw, 3rem);
+      font-size: clamp(1.8rem, 3.5vw, 3.2rem);
       font-weight: 700;
       color: var(--dark);
       margin-bottom: 20px;
@@ -397,23 +455,16 @@
       bottom: -12px;
       left: 50%;
       transform: translateX(-50%);
-      width: 60px;
+      width: clamp(50px, 5vw, 70px);
       height: 4px;
       background: var(--primary);
     }
 
     .innovation-header p {
-      font-size: clamp(0.9rem, 2.5vw, 1.15rem);
+      font-size: clamp(0.95rem, 1.5vw, 1.2rem);
       color: var(--text-muted);
       line-height: 1.6;
       margin-top: 20px;
-    }
-
-    .innovation-header p b {
-      color: var(--primary);
-      background: rgba(255, 0, 73, 0.08);
-      padding: 2px 10px;
-      border-radius: 30px;
     }
 
     .lead-text, .closing-text {
@@ -423,30 +474,30 @@
     }
 
     .lead-text {
-      font-size: clamp(0.9rem, 2.5vw, 1.05rem);
+      font-size: clamp(0.95rem, 1.4vw, 1.1rem);
       margin-bottom: 50px;
     }
 
     .closing-text {
-      font-size: clamp(0.85rem, 2.5vw, 1rem);
+      font-size: clamp(0.9rem, 1.3vw, 1rem);
       margin-top: 50px;
     }
 
     .specialties-horizontal {
       display: flex;
       flex-direction: row;
-      gap: 30px;
+      gap: clamp(20px, 3vw, 40px);
       justify-content: center;
       flex-wrap: wrap;
     }
 
     .specialties-horizontal .item {
       flex: 1;
-      min-width: 250px;
-      max-width: 350px;
+      min-width: 260px;
+      max-width: 380px;
       background: var(--card-white);
       border-radius: 24px;
-      padding: 2rem 1.5rem;
+      padding: clamp(1.5rem, 3vw, 2.2rem);
       transition: var(--transition);
       border: 1px solid rgba(0, 0, 0, 0.04);
       box-shadow: var(--shadow-sm);
@@ -460,14 +511,14 @@
     }
 
     .specialties-horizontal .item-icon {
-      width: 70px;
-      height: 70px;
+      width: clamp(60px, 7vw, 75px);
+      height: clamp(60px, 7vw, 75px);
       background: rgba(255, 0, 73, 0.1);
       display: flex;
       align-items: center;
       justify-content: center;
       border-radius: 20px;
-      font-size: 2rem;
+      font-size: clamp(1.8rem, 2.5vw, 2.2rem);
       color: var(--primary);
       margin: 0 auto 18px;
       transition: var(--transition);
@@ -479,7 +530,7 @@
     }
 
     .specialties-horizontal .item-text h3 {
-      font-size: 1.3rem;
+      font-size: clamp(1.2rem, 2vw, 1.4rem);
       font-weight: 700;
       margin-bottom: 10px;
       color: var(--dark);
@@ -487,8 +538,15 @@
 
     .specialties-horizontal .item-text p {
       color: #5A5A70;
-      font-size: 0.9rem;
+      font-size: clamp(0.85rem, 1.2vw, 0.95rem);
       line-height: 1.6;
+    }
+
+    @media (min-width: 1921px) {
+      .specialties-horizontal .item {
+        min-width: 320px;
+        max-width: 420px;
+      }
     }
 
     @media (max-width: 992px) {
@@ -496,7 +554,7 @@
         padding: 60px 5%;
       }
       .innovation-header h2 {
-        font-size: 1.6rem;
+        font-size: 1.8rem;
       }
     }
 
@@ -522,7 +580,7 @@
         text-align: left;
       }
       .lead-text, .closing-text {
-        font-size: 0.85rem;
+        font-size: 0.9rem;
       }
     }
 
@@ -531,20 +589,20 @@
       display: flex;
       justify-content: center;
       background: var(--dark);
-      padding: 70px 8%;
+      padding: clamp(50px, 8vh, 85px) clamp(20px, 5vw, 8%);
       text-align: center;
-      gap: 50px;
+      gap: clamp(30px, 5vw, 70px);
       flex-wrap: wrap;
     }
 
     .stat-item {
       flex: 1;
       min-width: 160px;
-      max-width: 250px;
+      max-width: 280px;
     }
 
     .stat-number {
-      font-size: clamp(2rem, 6vw, 3.2rem);
+      font-size: clamp(2rem, 4vw, 3.5rem);
       font-weight: 800;
       color: var(--primary);
       margin-bottom: 12px;
@@ -553,12 +611,21 @@
     .stats p {
       color: rgba(255, 255, 255, 0.8);
       font-weight: 500;
-      font-size: clamp(0.8rem, 2vw, 1rem);
+      font-size: clamp(0.85rem, 1.2vw, 1rem);
+    }
+
+    @media (min-width: 1921px) {
+      .stat-number {
+        font-size: 4rem;
+      }
+      .stat-item {
+        max-width: 350px;
+      }
     }
 
     @media (max-width: 992px) {
       .stats {
-        gap: 30px;
+        gap: 35px;
         padding: 50px 5%;
       }
     }
@@ -574,16 +641,16 @@
 
     /* ========== VISION SECTION ========== */
     .vision-section {
-      padding: 80px 8%;
+      padding: clamp(60px, 8vh, 100px) clamp(20px, 5vw, 8%);
       background: white;
     }
 
     .vision-container {
-      max-width: 1200px;
+      max-width: 1300px;
       margin: 0 auto;
       display: flex;
       align-items: center;
-      gap: 60px;
+      gap: clamp(40px, 6vw, 80px);
       flex-wrap: wrap;
     }
 
@@ -592,7 +659,7 @@
     }
 
     .vision-content h2 {
-      font-size: clamp(1.6rem, 4vw, 2.5rem);
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
       font-weight: 700;
       margin-bottom: 20px;
       color: var(--dark);
@@ -605,7 +672,7 @@
       position: absolute;
       bottom: -10px;
       left: 0;
-      width: 60px;
+      width: clamp(50px, 5vw, 70px);
       height: 3px;
       background: var(--primary);
     }
@@ -613,7 +680,7 @@
     .vision-content p {
       color: var(--text-muted);
       line-height: 1.7;
-      font-size: clamp(0.9rem, 2.5vw, 1.05rem);
+      font-size: clamp(0.95rem, 1.3vw, 1.05rem);
     }
 
     .vision-image {
@@ -633,16 +700,16 @@
 
     /* ========== MISSION SECTION ========== */
     .mission-section {
-      padding: 80px 8%;
+      padding: clamp(60px, 8vh, 100px) clamp(20px, 5vw, 8%);
       background: var(--gray-bg);
     }
 
     .mission-container {
-      max-width: 1200px;
+      max-width: 1300px;
       margin: 0 auto;
       display: flex;
       align-items: center;
-      gap: 60px;
+      gap: clamp(40px, 6vw, 80px);
       flex-wrap: wrap;
       flex-direction: row-reverse;
     }
@@ -652,7 +719,7 @@
     }
 
     .mission-content h2 {
-      font-size: clamp(1.6rem, 4vw, 2.5rem);
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
       font-weight: 700;
       margin-bottom: 20px;
       color: var(--dark);
@@ -665,7 +732,7 @@
       position: absolute;
       bottom: -10px;
       left: 0;
-      width: 60px;
+      width: clamp(50px, 5vw, 70px);
       height: 3px;
       background: var(--primary);
     }
@@ -673,7 +740,7 @@
     .mission-content p {
       color: var(--text-muted);
       line-height: 1.7;
-      font-size: clamp(0.9rem, 2.5vw, 1.05rem);
+      font-size: clamp(0.95rem, 1.3vw, 1.05rem);
     }
 
     .mission-image {
@@ -708,7 +775,7 @@
 
     /* ========== WHY APPWARE SECTION ========== */
     .why-appware {
-      padding: 80px 8%;
+      padding: clamp(60px, 8vh, 100px) clamp(20px, 5vw, 8%);
       background: linear-gradient(135deg, #ffffff 0%, #fef5f7 100%);
     }
 
@@ -719,12 +786,12 @@
 
     .why-header {
       text-align: center;
-      max-width: 700px;
+      max-width: 750px;
       margin: 0 auto 60px;
     }
 
     .why-header h2 {
-      font-size: clamp(1.6rem, 5vw, 2.8rem);
+      font-size: clamp(1.8rem, 3.5vw, 3rem);
       font-weight: 700;
       color: var(--dark);
       margin-bottom: 20px;
@@ -738,13 +805,13 @@
       bottom: -12px;
       left: 50%;
       transform: translateX(-50%);
-      width: 60px;
+      width: clamp(50px, 5vw, 70px);
       height: 4px;
       background: var(--primary);
     }
 
     .why-header > p {
-      font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+      font-size: clamp(0.95rem, 1.4vw, 1.1rem);
       color: var(--text-muted);
       line-height: 1.7;
       margin-top: 20px;
@@ -752,7 +819,7 @@
 
     .why-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 30px;
       margin-top: 40px;
     }
@@ -760,7 +827,7 @@
     .why-card {
       background: var(--card-white);
       border-radius: 28px;
-      padding: 1.8rem;
+      padding: clamp(1.5rem, 3vw, 2rem);
       transition: var(--transition);
       border: 1px solid rgba(0, 0, 0, 0.05);
       box-shadow: var(--shadow-sm);
@@ -773,8 +840,8 @@
     }
 
     .card-icon {
-      width: 55px;
-      height: 55px;
+      width: clamp(50px, 6vw, 60px);
+      height: clamp(50px, 6vw, 60px);
       background: rgba(255, 0, 73, 0.1);
       border-radius: 16px;
       display: flex;
@@ -789,7 +856,7 @@
     }
 
     .card-icon i {
-      font-size: 1.6rem;
+      font-size: clamp(1.5rem, 2vw, 1.8rem);
       color: var(--primary);
       transition: var(--transition);
     }
@@ -799,7 +866,7 @@
     }
 
     .why-card h3 {
-      font-size: 1.2rem;
+      font-size: clamp(1.1rem, 1.8vw, 1.3rem);
       font-weight: 700;
       margin-bottom: 10px;
       color: var(--dark);
@@ -808,20 +875,19 @@
     .why-card p {
       color: var(--text-muted);
       line-height: 1.6;
-      font-size: 0.9rem;
+      font-size: clamp(0.85rem, 1.2vw, 0.95rem);
     }
 
     .why-result {
       margin-top: 50px;
       text-align: center;
-      padding: 30px;
+      padding: clamp(25px, 4vw, 35px);
       background: linear-gradient(135deg, rgba(255, 0, 73, 0.05), rgba(255, 0, 73, 0.02));
       border-radius: 30px;
-      border: 1px solid rgba(255, 0, 73, 0.1);
     }
 
     .why-result p {
-      font-size: clamp(0.95rem, 3vw, 1.1rem);
+      font-size: clamp(0.95rem, 1.5vw, 1.1rem);
       font-weight: 500;
       color: var(--dark);
     }
@@ -845,27 +911,27 @@
     .footer {
       background: var(--dark);
       color: #FFFFFF;
-      padding: 60px 8% 40px;
+      padding: clamp(40px, 6vh, 60px) clamp(20px, 5vw, 8%) clamp(30px, 4vh, 40px);
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
-      gap: 40px;
+      gap: clamp(25px, 4vw, 50px);
     }
 
     .footer-col {
       flex: 1;
-      min-width: 160px;
+      min-width: 180px;
     }
 
     .footer-logo img {
-      height: 45px;
+      height: clamp(40px, 5vw, 50px);
       width: auto;
       margin-bottom: 15px;
     }
 
     .footer-logo p {
       color: rgba(255, 255, 255, 0.7);
-      font-size: 0.85rem;
+      font-size: clamp(0.8rem, 1.2vw, 0.9rem);
       line-height: 1.6;
       margin-bottom: 20px;
     }
@@ -880,12 +946,12 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 38px;
-      height: 38px;
+      width: clamp(35px, 4vw, 42px);
+      height: clamp(35px, 4vw, 42px);
       background: rgba(255, 255, 255, 0.1);
       border-radius: 50%;
       color: white;
-      font-size: 1.1rem;
+      font-size: clamp(1rem, 1.3vw, 1.2rem);
       transition: var(--transition);
     }
 
@@ -895,7 +961,7 @@
     }
 
     .footer h4 {
-      font-size: 1rem;
+      font-size: clamp(0.95rem, 1.3vw, 1.05rem);
       margin-bottom: 15px;
       font-weight: 600;
       color: white;
@@ -904,7 +970,7 @@
     .footer p, .footer a {
       color: rgba(255, 255, 255, 0.7);
       text-decoration: none;
-      font-size: 0.85rem;
+      font-size: clamp(0.8rem, 1.1vw, 0.9rem);
       line-height: 1.8;
       transition: var(--transition);
     }
@@ -916,11 +982,10 @@
 
     .footer-bottom {
       text-align: center;
-      padding-top: 30px;
+      padding-top: clamp(25px, 4vh, 35px);
       margin-top: 15px;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
-      font-size: 0.8rem;
-      color: rgba(255, 255, 255, 0.5);
+      font-size: clamp(0.75rem, 1vw, 0.85rem);
       width: 100%;
     }
 
@@ -950,17 +1015,14 @@
 </head>
 <body>
 
-  <!-- Custom Cursor -->
   <div class="appsware-cursor" style="display: none;"></div>
 
-  <!-- NAVBAR -->
   <nav class="navbar">
     <a href="index.html" class="logo-link">
       <div class="logo">
         <img src="/appsware/assets/Appsware Technologies.jpg" alt="Appsware Logo">
       </div>
     </a>
-    
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="about.html">About Us</a>
@@ -968,7 +1030,6 @@
       <a href="events.html">Events</a>
       <a href="contact.html">Contact Us</a>
     </div>
-    
     <div class="hamburger" id="hamburger">
       <span></span>
       <span></span>
@@ -983,10 +1044,8 @@
     <a href="events.html">Events</a>
     <a href="contact.html">Contact Us</a>
   </div>
-  
   <div class="overlay" id="overlay"></div>
 
-  <!-- PAGE HEADER -->
   <section class="page-header fade-up">
     <div>
       <h1>About <span>Appsware</span></h1>
@@ -994,7 +1053,6 @@
     </div>
   </section>
 
-  <!-- INNOVATION SECTION -->
   <section class="innovation fade-up">
     <div class="container">
       <div class="innovation-header">
@@ -1004,13 +1062,11 @@
           We operate as a unified engineering and growth team delivering high-impact digital products at global scale.
         </p>
       </div>
-
       <div class="innovation-text-centered">
         <p class="lead-text">
           We don't just build apps — we engineer ecosystems designed for performance, scalability, and market dominance.
           Every product is crafted with precision engineering, growth intelligence, and Play Store optimization at its core.
         </p>
-
         <div class="specialties-horizontal">
           <div class="item">
             <div class="item-icon"><i class="fas fa-code"></i></div>
@@ -1034,7 +1090,6 @@
             </div>
           </div>
         </div>
-
         <p class="closing-text">
           By staying ahead of global digital trends, Appsware consistently exceeds performance benchmarks and delivers measurable, scalable growth for every partner.
         </p>
@@ -1042,7 +1097,6 @@
     </div>
   </section>
 
-  <!-- STATS SECTION -->
   <section class="stats fade-up">
     <div class="stat-item">
       <div class="stat-number"><span class="counter-num" data-target="50">0</span>+</div>
@@ -1058,7 +1112,6 @@
     </div>
   </section>
 
-  <!-- VISION SECTION -->
   <section class="vision-section fade-up">
     <div class="vision-container">
       <div class="vision-content">
@@ -1071,7 +1124,6 @@
     </div>
   </section>
 
-  <!-- MISSION SECTION -->
   <section class="mission-section fade-up">
     <div class="mission-container">
       <div class="mission-content">
@@ -1084,14 +1136,12 @@
     </div>
   </section>
 
-  <!-- WHY APPWARE SECTION -->
   <section class="why-appware fade-up">
     <div class="why-container">
       <div class="why-header">
         <h2>Why Appsware?</h2>
         <p>Appsware Technologies transforms complex ideas into scalable, market-leading realities. Since 2019, we have specialized in engineering digital success through innovation and technical excellence.</p>
       </div>
-
       <div class="why-grid">
         <div class="why-card">
           <div class="card-icon"><i class="fas fa-chart-line"></i></div>
@@ -1124,14 +1174,12 @@
           <p>We merge the agility of a tech disruptor with the precision of industry experts to dominate the Android ecosystem.</p>
         </div>
       </div>
-
       <div class="why-result">
         <p><i class="fas fa-quote-left"></i> The Appsware Edge: Engineering digital success through innovation and technical excellence. <i class="fas fa-quote-right"></i></p>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-col">
       <div class="footer-logo">
@@ -1139,9 +1187,7 @@
         <p>"We build high-impact mobile technologies that prioritize maximum efficiency and a seamless user experience."</p>
       </div>
       <div class="social-links">
-        <a href="https://www.linkedin.com/company/appswaretechnologies/" target="_blank" rel="noopener noreferrer">
-          <i class="fab fa-linkedin-in"></i>
-        </a>
+        <a href="https://www.linkedin.com/company/appswaretechnologies/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
       </div>
     </div>
     <div class="footer-col">
@@ -1162,7 +1208,6 @@
   </footer>
 
   <script>
-    // Show/hide custom cursor based on device
     const cursor = document.querySelector('.appsware-cursor');
     if (window.matchMedia('(hover: hover) and (pointer: fine)').matches && window.innerWidth > 992) {
       if (cursor) cursor.style.display = 'block';
@@ -1170,17 +1215,12 @@
       if (cursor) cursor.style.display = 'none';
     }
 
-    // Navbar scroll effect
     window.addEventListener('scroll', function() {
       const navbar = document.querySelector('.navbar');
-      if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
+      if (window.scrollY > 50) navbar.classList.add('scrolled');
+      else navbar.classList.remove('scrolled');
     });
 
-    // Hamburger Menu
     const hamburger = document.getElementById('hamburger');
     const mobileNav = document.getElementById('mobileNav');
     const overlay = document.getElementById('overlay');
@@ -1194,17 +1234,12 @@
 
     hamburger.addEventListener('click', toggleMenu);
     overlay.addEventListener('click', toggleMenu);
+    document.querySelectorAll('.mobile-nav a').forEach(link => link.addEventListener('click', toggleMenu));
 
-    document.querySelectorAll('.mobile-nav a').forEach(link => {
-      link.addEventListener('click', toggleMenu);
-    });
-
-    // Counter animation
     function animateCounter(element, target) {
       let current = 0;
       const increment = target / 60;
       const stepTime = 2000 / 60;
-      
       function updateCounter() {
         current += increment;
         if (current < target) {
@@ -1219,53 +1254,34 @@
 
     let countersStarted = false;
     const statsSection = document.querySelector('.stats');
-    
     const counterObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting && !countersStarted) {
           countersStarted = true;
           const counters = document.querySelectorAll('.counter-num');
           const targets = [50, 100, 20];
-          counters.forEach((counter, index) => {
-            animateCounter(counter, targets[index]);
-          });
+          counters.forEach((counter, index) => animateCounter(counter, targets[index]));
         }
       });
     }, { threshold: 0.3 });
-    
-    if (statsSection) {
-      counterObserver.observe(statsSection);
-    }
+    if (statsSection) counterObserver.observe(statsSection);
 
-    // Fade-up animation
     const fadeElements = document.querySelectorAll('.fade-up');
     const fadeObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
+        if (entry.isIntersecting) entry.target.classList.add('visible');
       });
     }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-    
-    fadeElements.forEach(element => {
-      fadeObserver.observe(element);
-    });
+    fadeElements.forEach(element => fadeObserver.observe(element));
 
-    // Custom Cursor Movement
     if (window.matchMedia('(hover: hover) and (pointer: fine)').matches && window.innerWidth > 992 && cursor) {
       document.addEventListener('mousemove', (e) => {
         cursor.style.left = e.clientX + 'px';
         cursor.style.top = e.clientY + 'px';
       });
-      document.addEventListener('mousedown', () => {
-        cursor.classList.add('clicking');
-      });
-      document.addEventListener('mouseup', () => {
-        cursor.classList.remove('clicking');
-      });
+      document.addEventListener('mousedown', () => cursor.classList.add('clicking'));
+      document.addEventListener('mouseup', () => cursor.classList.remove('clicking'));
     }
-
-    console.log('Appsware Technologies — About Page');
   </script>
 </body>
 </html>
