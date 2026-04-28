@@ -17,6 +17,10 @@
   <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  
   <style>
     :root {
       --primary: #FF0049;
@@ -571,6 +575,252 @@
         min-width: 130px;
       }
       .stat-number {
+        font-size: 1.8rem;
+      }
+    }
+
+    /* ========== GOOGLE TEAM MEETING SECTION - NEW ANIMATED SECTION ========== */
+    .google-meeting-section {
+      padding: 100px 8%;
+      background: linear-gradient(135deg, #0A0A0F 0%, #1A1A2E 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .google-meeting-section::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      left: -10%;
+      width: 80%;
+      height: 150%;
+      background: radial-gradient(circle, rgba(255, 0, 73, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+      animation: pulseGlow 4s ease-in-out infinite;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+
+    .google-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 60px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 2;
+    }
+
+    .google-image {
+      flex: 1;
+      min-width: 300px;
+      position: relative;
+    }
+
+    .google-image img {
+      width: 100%;
+      border-radius: 30px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      transition: var(--transition);
+      animation: floatImage 5s ease-in-out infinite;
+    }
+
+    @keyframes floatImage {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .google-image:hover img {
+      transform: scale(1.02);
+    }
+
+    .google-badge {
+      position: absolute;
+      top: -15px;
+      right: -15px;
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #FF0049, #FF6B9D);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      animation: rotateBadge 8s linear infinite;
+    }
+
+    @keyframes rotateBadge {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .google-badge i {
+      font-size: 2.5rem;
+      color: white;
+      animation: counterRotate 8s linear infinite;
+    }
+
+    @keyframes counterRotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(-360deg); }
+    }
+
+    .google-content {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .google-tag {
+      display: inline-block;
+      background: rgba(255, 0, 73, 0.15);
+      color: var(--primary);
+      padding: 8px 20px;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      backdrop-filter: blur(10px);
+    }
+
+    .google-content h2 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
+      color: white;
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+
+    .google-content h2 span {
+      color: var(--primary);
+      position: relative;
+      display: inline-block;
+    }
+
+    .google-content h2 span::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--primary);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.5s ease;
+    }
+
+    .google-content h2 span:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .google-content p {
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.7;
+      margin-bottom: 20px;
+      font-size: 1rem;
+    }
+
+    .google-highlights {
+      display: flex;
+      gap: 30px;
+      margin: 30px 0;
+      flex-wrap: wrap;
+    }
+
+    .highlight {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .highlight-icon {
+      width: 45px;
+      height: 45px;
+      background: rgba(255, 0, 73, 0.15);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .highlight-icon i {
+      font-size: 1.3rem;
+      color: var(--primary);
+    }
+
+    .highlight:hover .highlight-icon {
+      background: var(--primary);
+      transform: scale(1.1);
+    }
+
+    .highlight:hover .highlight-icon i {
+      color: white;
+    }
+
+    .highlight-text h4 {
+      font-size: 0.9rem;
+      color: white;
+      font-weight: 600;
+    }
+
+    .highlight-text p {
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.6);
+      margin: 0;
+    }
+
+    .google-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--primary);
+      color: white;
+      padding: 14px 32px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition);
+      margin-top: 10px;
+    }
+
+    .google-btn:hover {
+      background: white;
+      color: var(--primary);
+      transform: translateX(5px);
+    }
+
+    .google-btn i {
+      transition: var(--transition);
+    }
+
+    .google-btn:hover i {
+      transform: translateX(5px);
+    }
+
+    @media (max-width: 992px) {
+      .google-meeting-section {
+        padding: 80px 5%;
+      }
+      .google-container {
+        flex-direction: column;
+        text-align: center;
+      }
+      .google-highlights {
+        justify-content: center;
+      }
+      .google-badge {
+        width: 60px;
+        height: 60px;
+        top: -10px;
+        right: -10px;
+      }
+      .google-badge i {
         font-size: 1.8rem;
       }
     }
@@ -1573,6 +1823,50 @@
     <p>Our vision is the evolution of Appsware Technologies into a Unicorn leader in the IT industry. Through relentless engineering excellence and hyper-growth strategy, we aim to dominate the digital ecosystem.</p>
   </section>
 
+  <!-- GOOGLE TEAM MEETING SECTION - NEW ANIMATED SECTION -->
+  <section class="google-meeting-section fade-up" data-aos="fade-up">
+    <div class="google-container">
+      <div class="google-image" data-aos="zoom-in" data-aos-delay="200">
+        <img src="/appsware/assets/google-team-meeting.jpg" alt="Google Team Meeting with Appsware">
+        <div class="google-badge">
+          <i class="fab fa-google"></i>
+        </div>
+      </div>
+      <div class="google-content" data-aos="fade-left" data-aos-delay="300">
+        <div class="google-tag">
+          <i class="fab fa-google"></i> Strategic Collaboration
+        </div>
+        <h2>Google Team <span>Meet & Greet</span></h2>
+        <p>We had the incredible opportunity to host the Google team at Appsware headquarters. This strategic meeting marked a significant milestone in our journey towards building world-class Android applications and strengthening our partnership with Google.</p>
+        <p>The session focused on app performance optimization, Play Store policies, and future trends in mobile technology. It was an inspiring exchange of ideas that will shape the future of our products.</p>
+        <div class="google-highlights">
+          <div class="highlight">
+            <div class="highlight-icon"><i class="fab fa-google"></i></div>
+            <div class="highlight-text">
+              <h4>Strategic Partnership</h4>
+              <p>Strengthening ties with Google</p>
+            </div>
+          </div>
+          <div class="highlight">
+            <div class="highlight-icon"><i class="fas fa-rocket"></i></div>
+            <div class="highlight-text">
+              <h4>Growth Strategies</h4>
+              <p>New market opportunities</p>
+            </div>
+          </div>
+          <div class="highlight">
+            <div class="highlight-icon"><i class="fas fa-chart-line"></i></div>
+            <div class="highlight-text">
+              <h4>Performance Boost</h4>
+              <p>Optimization insights</p>
+            </div>
+          </div>
+        </div>
+        <a href="#" class="google-btn">Learn More <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
   <!-- CEO SECTION -->
   <section class="ceo-section fade-up">
     <div class="ceo-container">
@@ -1709,6 +2003,13 @@
   </footer>
 
   <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 100
+    });
+
     // Show/hide custom cursor based on device
     const cursor = document.querySelector('.appsware-cursor');
     if (window.matchMedia('(hover: hover) and (pointer: fine)').matches && window.innerWidth > 992) {
