@@ -75,10 +75,10 @@
       font-family: 'Poppins', sans-serif;
     }
 
-    /* ========== NAVBAR - FULLY RESPONSIVE FOR ALL SCREEN SIZES ========== */
+    /* ========== NAVBAR - SCALES PROPERLY FOR ALL SCREEN SIZES ========== */
     .navbar {
       position: fixed;
-      top: clamp(15px, 2vw, 25px);
+      top: 0;
       left: 50%;
       transform: translateX(-50%);
       width: 90%;
@@ -86,21 +86,22 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: clamp(10px, 1.2vw, 18px) clamp(20px, 3vw, 45px);
+      padding: 15px 40px;
       background: rgba(255, 255, 255, 0.96);
       backdrop-filter: blur(12px);
-      border-radius: clamp(40px, 5vw, 80px);
+      border-radius: 80px;
       box-shadow: 0 8px 25px -8px rgba(0, 0, 0, 0.06);
       z-index: 1000;
       border: 1px solid rgba(255, 0, 73, 0.12);
       transition: var(--transition);
+      margin-top: 20px;
     }
 
     .navbar.scrolled {
-      top: 0;
+      margin-top: 0;
       width: 100%;
       border-radius: 0;
-      padding: clamp(8px, 1vw, 15px) clamp(20px, 4vw, 5%);
+      padding: 12px 5%;
       background: rgba(255, 255, 255, 0.98);
       box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
     }
@@ -113,23 +114,22 @@
     }
 
     .logo img {
-      height: clamp(35px, 4vw, 50px);
+      height: 48px;
       width: auto;
       object-fit: contain;
     }
 
     .nav-links {
       display: flex;
-      gap: clamp(15px, 2vw, 40px);
+      gap: 35px;
       align-items: center;
-      flex-wrap: wrap;
     }
 
     .nav-links a {
       text-decoration: none;
       color: var(--dark);
       font-weight: 500;
-      font-size: clamp(0.85rem, 1.2vw, 1.05rem);
+      font-size: 1rem;
       transition: var(--transition);
       position: relative;
       white-space: nowrap;
@@ -158,13 +158,13 @@
       display: none;
       flex-direction: column;
       cursor: pointer;
-      gap: clamp(4px, 0.8vw, 6px);
+      gap: 6px;
       z-index: 1001;
       flex-shrink: 0;
     }
 
     .hamburger span {
-      width: clamp(22px, 3vw, 27px);
+      width: 28px;
       height: 3px;
       background: var(--dark);
       transition: var(--transition);
@@ -237,27 +237,83 @@
       visibility: visible;
     }
 
-    /* NAVBAR RESPONSIVE BREAKPOINTS FOR ALL SCREENS */
-    @media (min-width: 1921px) {
+    /* RESPONSIVE BREAKPOINTS FOR ALL SCREEN SIZES */
+    
+    /* Extra large screens (36 inch, 4K, ultrawide) */
+    @media (min-width: 2560px) {
       .navbar {
-        max-width: 1800px;
-        padding: 18px 50px;
+        max-width: 2200px;
+        padding: 25px 70px;
+        border-radius: 100px;
+        margin-top: 30px;
+      }
+      .logo img {
+        height: 70px;
       }
       .nav-links {
-        gap: 45px;
+        gap: 60px;
       }
       .nav-links a {
-        font-size: 1.1rem;
+        font-size: 1.4rem;
+      }
+      .nav-links a::after {
+        bottom: -8px;
+        height: 3px;
+      }
+    }
+
+    /* Large desktop screens (27-36 inch) */
+    @media (min-width: 1920px) and (max-width: 2559px) {
+      .navbar {
+        max-width: 1900px;
+        padding: 22px 60px;
+        border-radius: 90px;
+        margin-top: 28px;
+      }
+      .logo img {
+        height: 62px;
+      }
+      .nav-links {
+        gap: 50px;
+      }
+      .nav-links a {
+        font-size: 1.25rem;
+      }
+      .nav-links a::after {
+        bottom: -8px;
+        height: 3px;
+      }
+    }
+
+    /* Desktop screens (20-27 inch) */
+    @media (min-width: 1600px) and (max-width: 1919px) {
+      .navbar {
+        max-width: 1600px;
+        padding: 20px 50px;
+        border-radius: 85px;
+        margin-top: 25px;
       }
       .logo img {
         height: 55px;
       }
+      .nav-links {
+        gap: 42px;
+      }
+      .nav-links a {
+        font-size: 1.15rem;
+      }
     }
 
-    @media (min-width: 1601px) and (max-width: 1920px) {
+    /* Standard desktop/laptop (15-20 inch) */
+    @media (min-width: 1200px) and (max-width: 1599px) {
       .navbar {
-        max-width: 1500px;
+        max-width: 1400px;
         padding: 15px 40px;
+        border-radius: 80px;
+        margin-top: 20px;
+      }
+      .logo img {
+        height: 48px;
       }
       .nav-links {
         gap: 35px;
@@ -265,45 +321,37 @@
       .nav-links a {
         font-size: 1rem;
       }
-      .logo img {
-        height: 48px;
-      }
     }
 
-    @media (min-width: 1201px) and (max-width: 1600px) {
+    /* Small desktop/laptop (13-15 inch) */
+    @media (min-width: 993px) and (max-width: 1199px) {
       .navbar {
-        max-width: 1300px;
-        padding: 12px 35px;
-      }
-      .nav-links {
-        gap: 28px;
+        width: 93%;
+        padding: 13px 32px;
+        border-radius: 70px;
+        margin-top: 18px;
       }
       .logo img {
-        height: 42px;
-      }
-    }
-
-    @media (min-width: 993px) and (max-width: 1200px) {
-      .navbar {
-        width: 92%;
-        padding: 12px 30px;
+        height: 40px;
       }
       .nav-links {
-        gap: 22px;
+        gap: 25px;
       }
       .nav-links a {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
       }
     }
 
+    /* Tablets */
     @media (max-width: 992px) {
       .navbar {
         width: 95%;
-        padding: 12px 24px;
-        top: 15px;
-        border-radius: 50px;
+        padding: 14px 28px;
+        border-radius: 60px;
+        margin-top: 15px;
       }
       .navbar.scrolled {
+        margin-top: 0;
         border-radius: 0px;
         padding: 12px 5%;
       }
@@ -314,36 +362,46 @@
         display: flex;
       }
       .logo img {
-        height: 38px;
+        height: 40px;
       }
     }
 
+    /* Large phones */
     @media (max-width: 768px) {
       .navbar {
         width: 96%;
-        padding: 10px 20px;
-      }
-      .logo img {
-        height: 35px;
+        padding: 12px 22px;
+        border-radius: 50px;
+        margin-top: 12px;
       }
       .navbar.scrolled {
+        margin-top: 0;
         padding: 10px 5%;
+      }
+      .logo img {
+        height: 36px;
+      }
+      .hamburger span {
+        width: 26px;
+        height: 2.5px;
       }
     }
 
+    /* Small phones */
     @media (max-width: 480px) {
       .navbar {
         width: 97%;
-        padding: 8px 16px;
-        top: 10px;
+        padding: 10px 18px;
         border-radius: 40px;
+        margin-top: 10px;
+      }
+      .navbar.scrolled {
+        margin-top: 0;
+        padding: 8px 5%;
+        border-radius: 0px;
       }
       .logo img {
         height: 30px;
-      }
-      .navbar.scrolled {
-        padding: 8px 5%;
-        border-radius: 0px;
       }
       .hamburger span {
         width: 22px;
@@ -1058,7 +1116,7 @@
       <div class="innovation-header">
         <h2>Innovation Beyond Limits</h2>
         <p>
-          Appsware merges advanced technology with an innovative spirit driven by the principle of<br><b>“We Can.”</b>
+          Appsware merges advanced technology with an innovative spirit driven by the principle of<br><b>"We Can."</b>
           We operate as a unified engineering and growth team delivering high-impact digital products at global scale.
         </p>
       </div>
