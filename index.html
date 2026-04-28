@@ -1272,7 +1272,7 @@
       height: 50px;
     }
 
-    /* ========== FOOTER ========== */
+    /* ========== FOOTER - ORIGINAL DESIGN RESTORED ========== */
     .footer {
       background: var(--dark);
       padding: clamp(40px, 6vh, 60px) clamp(20px, 5vw, 8%) 30px;
@@ -1303,6 +1303,43 @@
       color: white;
       margin-right: 12px;
       transition: var(--transition);
+    }
+
+    .social-links a:hover {
+      background: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    .footer h4 {
+      color: white;
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .footer p, .footer a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      line-height: 2;
+      transition: var(--transition);
+    }
+
+    .footer a:hover {
+      color: var(--primary);
+      padding-left: 5px;
+    }
+
+    .footer-bottom {
+      width: 100%;
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 20px;
+    }
+
+    .footer-bottom p {
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.9rem;
     }
 
     @media (max-width: 992px) {
@@ -1356,150 +1393,462 @@
   </div>
   <div class="overlay" id="overlay"></div>
 
-  <!-- Rest of the sections remain the same but with corrected CSS -->
+  <!-- Hero Section -->
   <section class="hero fade-up">
     <div class="hero-left">
       <h1>Engineering Top-Ranked <span>Android Apps</span></h1>
       <p>We build scalable, high-performance mobile applications optimized for Google Play success, user retention, and global-scale growth. Our engineering philosophy focuses on stability, performance, and long-term user engagement across millions of devices worldwide.</p>
     </div>
-    <div class="hero-right"><img src="/appsware/assets/hero image.png" class="phone" alt="Mobile App Preview"></div>
+    <div class="hero-right">
+      <img src="/appsware/assets/hero image.png" class="phone" alt="Mobile App Preview">
+    </div>
   </section>
 
+  <!-- Innovation Section -->
   <section class="innovation fade-up">
     <div class="container">
       <div class="innovation-header">
         <h2>Innovation Beyond Limits</h2>
-        <p>Appsware merges advanced technology with an innovative spirit driven by the principle of<br><b>“We Can.”</b> We operate as a unified engineering and growth team delivering high-impact digital products at global scale.</p>
+        <p>Appsware merges advanced technology with an innovative spirit driven by the principle of<br><b>"We Can."</b> We operate as a unified engineering and growth team delivering high-impact digital products at global scale.</p>
       </div>
       <div class="innovation-text-centered">
         <p class="lead-text">We don't just build apps — we engineer ecosystems designed for performance, scalability, and market dominance. Every product is crafted with precision engineering, growth intelligence, and Play Store optimization at its core.</p>
+        
         <div class="specialties-horizontal">
-          <div class="item"><div class="item-icon"><i class="fas fa-code"></i></div><div class="item-text"><h3>Mobile Development</h3><p>High-performance Hybrid (Flutter, React Native) and Native iOS applications built for scale, speed, and stability.</p></div></div>
-          <div class="item"><div class="item-icon"><i class="fab fa-google"></i></div><div class="item-text"><h3>Google Ads Growth Engine</h3><p>Data-driven acquisition strategies powered by advanced targeting, ROAS optimization, and funnel engineering.</p></div></div>
-          <div class="item"><div class="item-icon"><i class="fab fa-google-play"></i></div><div class="item-text"><h3>Play Store Excellence</h3><p>End-to-end ASO, conversion optimization, and ranking strategies that push apps to top positions globally.</p></div></div>
+          <div class="item">
+            <div class="item-icon"><i class="fas fa-code"></i></div>
+            <div class="item-text">
+              <h3>Mobile Development</h3>
+              <p>High-performance Hybrid (Flutter, React Native) and Native iOS applications built for scale, speed, and stability.</p>
+            </div>
+          </div>
+          
+          <div class="item">
+            <div class="item-icon"><i class="fab fa-google"></i></div>
+            <div class="item-text">
+              <h3>Google Ads Growth Engine</h3>
+              <p>Data-driven acquisition strategies powered by advanced targeting, ROAS optimization, and funnel engineering.</p>
+            </div>
+          </div>
+          
+          <div class="item">
+            <div class="item-icon"><i class="fab fa-google-play"></i></div>
+            <div class="item-text">
+              <h3>Play Store Excellence</h3>
+              <p>End-to-end ASO, conversion optimization, and ranking strategies that push apps to top positions globally.</p>
+            </div>
+          </div>
         </div>
+        
         <p class="closing-text">By staying ahead of global digital trends, Appsware consistently exceeds performance benchmarks and delivers measurable, scalable growth for every partner.</p>
       </div>
     </div>
   </section>
 
+  <!-- Stats Section -->
   <section class="stats fade-up">
-    <div class="stat-item"><div class="stat-number"><span class="counter-num" data-target="50">0</span>+</div><p>Published Applications</p></div>
-    <div class="stat-item"><div class="stat-number"><span class="counter-num" data-target="100">0</span>M+</div><p>Total Play Store Installs</p></div>
-    <div class="stat-item"><div class="stat-number"><span class="counter-num" data-target="20">0</span>+</div><p>Elite Professionals</p></div>
+    <div class="stat-item">
+      <div class="stat-number"><span class="counter-num" data-target="50">0</span>+</div>
+      <p>Published Applications</p>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number"><span class="counter-num" data-target="100">0</span>M+</div>
+      <p>Total Play Store Installs</p>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number"><span class="counter-num" data-target="20">0</span>+</div>
+      <p>Elite Professionals</p>
+    </div>
   </section>
 
+  <!-- Vision Section -->
   <section class="vision-section fade-up">
     <div class="vision-container">
-      <div class="vision-content"><h2>Vision of Appsware Technologies</h2><p>Our vision is to propel Appsware Technologies to Unicorn status within the global tech ecosystem. We are dedicated to achieving rapid, sustainable growth by leveraging disruptive innovation, superior engineering, and a steadfast commitment to delivering digital solutions that set new industry benchmarks.</p></div>
-      <div class="vision-image"><img src="/appsware/assets/vission-image.jpg" alt="Vision Illustration"></div>
+      <div class="vision-content">
+        <h2>Vision of Appsware Technologies</h2>
+        <p>Our vision is to propel Appsware Technologies to Unicorn status within the global tech ecosystem. We are dedicated to achieving rapid, sustainable growth by leveraging disruptive innovation, superior engineering, and a steadfast commitment to delivering digital solutions that set new industry benchmarks.</p>
+      </div>
+      <div class="vision-image">
+        <img src="/appsware/assets/vission-image.jpg" alt="Vision Illustration">
+      </div>
     </div>
   </section>
 
+  <!-- Mission Section -->
   <section class="mission-section fade-up">
     <div class="mission-container">
-      <div class="mission-content"><h2>Mission</h2><p>Appsware Technologies is dedicated to bridging the gap between complex technology and human potential. Our mission is to pioneer innovative digital solutions that foster collaboration and spark imagination within a secure, ethical framework.</p></div>
-      <div class="mission-image"><img src="/appsware/assets/mission-image.jpg" alt="Mission Illustration"></div>
+      <div class="mission-content">
+        <h2>Mission</h2>
+        <p>Appsware Technologies is dedicated to bridging the gap between complex technology and human potential. Our mission is to pioneer innovative digital solutions that foster collaboration and spark imagination within a secure, ethical framework.</p>
+      </div>
+      <div class="mission-image">
+        <img src="/appsware/assets/mission-image.jpg" alt="Mission Illustration">
+      </div>
     </div>
   </section>
 
+  <!-- Future Section -->
   <section class="future-section fade-up">
     <h2>The Future of Appsware Technologies</h2>
     <p>Our vision is the evolution of Appsware Technologies into a Unicorn leader in the IT industry. Through relentless engineering excellence and hyper-growth strategy, we aim to dominate the digital ecosystem.</p>
   </section>
 
+  <!-- Google Meeting Section -->
   <section class="google-meeting-section fade-up" data-aos="fade-up">
     <div class="google-container">
-      <div class="google-image"><img src="/appsware/assets/google-team.jpg" alt="Google Team Meeting"><div class="google-badge"><i class="fab fa-google"></i></div></div>
+      <div class="google-image">
+        <img src="/appsware/assets/google-team.jpg" alt="Google Team Meeting">
+        <div class="google-badge">
+          <i class="fab fa-google"></i>
+        </div>
+      </div>
       <div class="google-content">
-        <div class="google-tag"><i class="fab fa-google"></i> Strategic Collaboration</div>
+        <div class="google-tag">
+          <i class="fab fa-google"></i> Strategic Collaboration
+        </div>
         <h2>Google Team <span>Meet & Greet</span></h2>
         <p>We had the incredible opportunity to host the Google team at Appsware headquarters. This strategic meeting marked a significant milestone in our journey towards building world-class Android applications and strengthening our partnership with Google.</p>
+        
         <div class="google-highlights">
-          <div class="highlight"><div class="highlight-icon"><i class="fab fa-google"></i></div><div class="highlight-text"><h4>Strategic Partnership</h4><p>Strengthening ties with Google</p></div></div>
-          <div class="highlight"><div class="highlight-icon"><i class="fas fa-rocket"></i></div><div class="highlight-text"><h4>Growth Strategies</h4><p>New market opportunities</p></div></div>
-          <div class="highlight"><div class="highlight-icon"><i class="fas fa-chart-line"></i></div><div class="highlight-text"><h4>Performance Boost</h4><p>Optimization insights</p></div></div>
+          <div class="highlight">
+            <div class="highlight-icon"><i class="fab fa-google"></i></div>
+            <div class="highlight-text">
+              <h4>Strategic Partnership</h4>
+              <p>Strengthening ties with Google</p>
+            </div>
+          </div>
+          <div class="highlight">
+            <div class="highlight-icon"><i class="fas fa-rocket"></i></div>
+            <div class="highlight-text">
+              <h4>Growth Strategies</h4>
+              <p>New market opportunities</p>
+            </div>
+          </div>
+          <div class="highlight">
+            <div class="highlight-icon"><i class="fas fa-chart-line"></i></div>
+            <div class="highlight-text">
+              <h4>Performance Boost</h4>
+              <p>Optimization insights</p>
+            </div>
+          </div>
         </div>
-        <a href="#" class="google-btn">Learn More <i class="fas fa-arrow-right"></i></a>
+        
+        <a href="#" class="google-btn">
+          Learn More <i class="fas fa-arrow-right"></i>
+        </a>
       </div>
     </div>
   </section>
 
+  <!-- CEO Section -->
   <section class="ceo-section fade-up">
     <div class="ceo-container">
-      <div class="ceo-image"><img src="/appsware/assets/ceo-image.jpg" alt="Mr. Maaz Bin Jamil - CEO"></div>
+      <div class="ceo-image">
+        <img src="/appsware/assets/ceo-image.jpg" alt="Mr. Maaz Bin Jamil - CEO">
+      </div>
       <div class="ceo-content">
-        <div class="ceo-quote-icon"><i class="fas fa-quote-right"></i></div>
-        <div class="ceo-message"><p>“I envision Appsware as the ultimate hub of the IT world—a Unicorn defined by leadership and transformative impact. This vision requires massive effort, but with our team's collective talent and relentless innovative spirit, I know we can redefine the digital frontier.”</p>
-        <div class="ceo-signature"><div class="ceo-name">MR. MAAZ BIN JAMIL</div><div class="ceo-title">CEO, Appsware Technologies</div></div>
-        <div class="ceo-divider"></div></div>
+        <div class="ceo-quote-icon">
+          <i class="fas fa-quote-right"></i>
+        </div>
+        <div class="ceo-message">
+          <p>"I envision Appsware as the ultimate hub of the IT world—a Unicorn defined by leadership and transformative impact. This vision requires massive effort, but with our team's collective talent and relentless innovative spirit, I know we can redefine the digital frontier."</p>
+          <div class="ceo-signature">
+            <div class="ceo-name">MR. MAAZ BIN JAMIL</div>
+            <div class="ceo-title">CEO, Appsware Technologies</div>
+          </div>
+          <div class="ceo-divider"></div>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- Production Slider Section -->
   <section class="production-slider-section fade-up">
     <div class="slider-container">
-      <div class="slider-header"><h2>Sultan Abubakar's 6-Year Journey</h2><p>Our Production Manager's incredible journey of dedication, growth, and excellence</p></div>
-      <div class="journey-slider"><button class="slider-btn prev-btn"><i class="fas fa-chevron-left"></i></button><div class="slider-main"><div class="slider-track" id="sliderTrack"></div></div><button class="slider-btn next-btn"><i class="fas fa-chevron-right"></i></button></div>
+      <div class="slider-header">
+        <h2>Sultan Abubakar's 6-Year Journey</h2>
+        <p>Our Production Manager's incredible journey of dedication, growth, and excellence</p>
+      </div>
+      
+      <div class="journey-slider">
+        <button class="slider-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+        <div class="slider-main">
+          <div class="slider-track" id="sliderTrack">
+            <!-- Slides will be added by JavaScript -->
+          </div>
+        </div>
+        <button class="slider-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+      </div>
+      
       <div class="slider-dots" id="sliderDots"></div>
     </div>
   </section>
 
+  <!-- ASO Manager Section -->
   <section class="aso-manager-section fade-up">
     <div class="aso-container">
-      <div class="aso-image"><img src="/appsware/assets/ammar-rashid.jpg" alt="Syed Ammar Rashid"></div>
-      <div class="aso-content"><div class="aso-badge">10M+ Installs Achievement</div><h2>Syed Ammar Rashid</h2><div class="aso-name">ASO Manager</div>
-      <div class="stats-highlight"><div class="stat-highlight"><div class="number">10M+</div><div class="label">App Installs</div></div><div class="stat-highlight"><div class="number">4.8★</div><div class="label">Avg Rating</div></div><div class="stat-highlight"><div class="number">Top 10</div><div class="label">Play Store Rank</div></div></div>
-      <p>Syed Ammar Rashid, our dedicated ASO Manager, has been instrumental in driving over 10 million+ installs across multiple apps. His expertise in keyword optimization, conversion rate optimization, and Play Store algorithms has consistently pushed our apps to top rankings globally.</p></div>
+      <div class="aso-image">
+        <img src="/appsware/assets/ammar-rashid.jpg" alt="Syed Ammar Rashid">
+      </div>
+      <div class="aso-content">
+        <div class="aso-badge">10M+ Installs Achievement</div>
+        <h2>Syed Ammar Rashid</h2>
+        <div class="aso-name">ASO Manager</div>
+        
+        <div class="stats-highlight">
+          <div class="stat-highlight">
+            <div class="number">10M+</div>
+            <div class="label">App Installs</div>
+          </div>
+          <div class="stat-highlight">
+            <div class="number">4.8★</div>
+            <div class="label">Avg Rating</div>
+          </div>
+          <div class="stat-highlight">
+            <div class="number">Top 10</div>
+            <div class="label">Play Store Rank</div>
+          </div>
+        </div>
+        
+        <p>Syed Ammar Rashid, our dedicated ASO Manager, has been instrumental in driving over 10 million+ installs across multiple apps. His expertise in keyword optimization, conversion rate optimization, and Play Store algorithms has consistently pushed our apps to top rankings globally.</p>
+      </div>
     </div>
   </section>
 
+  <!-- Footer - ORIGINAL DESIGN -->
   <footer class="footer">
-    <div class="footer-col"><div class="footer-logo"><img src="/appsware/assets/footer logo.png" alt="Appsware Logo"><p>"A Software house where Design and Development of powerful applications for Android occurs 24/7"</p></div><div class="social-links"><a href="https://www.linkedin.com/company/appswaretechnologies/" target="_blank"><i class="fab fa-linkedin-in"></i></a></div></div>
-    <div class="footer-col"><h4>Explore</h4><p><a href="index.html">Home</a></p><p><a href="about.html">About Us</a></p><p><a href="careers.html">Careers</a></p><p><a href="events.html">Events</a></p><p><a href="contact.html">Contact Us</a></p></div>
-    <div class="footer-col"><h4>Connect</h4><p>hr@appswaretech.com</p></div>
-    <div class="footer-bottom"><p>© 2019 Appsware Technologies — Innovation Beyond Limits</p></div>
+    <div class="footer-col">
+      <div class="footer-logo">
+        <img src="/appsware/assets/footer logo.png" alt="Appsware Logo">
+      </div>
+      <p>"A Software house where Design and Development of powerful applications for Android occurs 24/7"</p>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/company/appswaretechnologies/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+      </div>
+    </div>
+    
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <p><a href="index.html">Home</a></p>
+      <p><a href="about.html">About Us</a></p>
+      <p><a href="careers.html">Careers</a></p>
+      <p><a href="events.html">Events</a></p>
+      <p><a href="contact.html">Contact Us</a></p>
+    </div>
+    
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <p><i class="fas fa-envelope"></i> hr@appswaretech.com</p>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>© 2019 Appsware Technologies — Innovation Beyond Limits</p>
+    </div>
   </footer>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init({ duration: 800, once: true, offset: 100 });
+    // Initialize AOS
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 100
+    });
     
+    // Custom cursor logic
     const cursor = document.querySelector('.appsware-cursor');
     if (window.matchMedia('(hover: hover) and (pointer: fine)').matches && window.innerWidth > 992) {
       if (cursor) cursor.style.display = 'block';
-    } else { if (cursor) cursor.style.display = 'none'; }
+    } else {
+      if (cursor) cursor.style.display = 'none';
+    }
 
+    // Navbar scroll effect
     window.addEventListener('scroll', function() {
       const navbar = document.querySelector('.navbar');
-      if (window.scrollY > 50) navbar.classList.add('scrolled');
-      else navbar.classList.remove('scrolled');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
     });
 
+    // Mobile menu toggle
     const hamburger = document.getElementById('hamburger');
     const mobileNav = document.getElementById('mobileNav');
     const overlay = document.getElementById('overlay');
+
     function toggleMenu() {
       hamburger.classList.toggle('active');
       mobileNav.classList.toggle('active');
       overlay.classList.toggle('active');
       document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
     }
+
     hamburger.addEventListener('click', toggleMenu);
     overlay.addEventListener('click', toggleMenu);
-    document.querySelectorAll('.mobile-nav a').forEach(link => link.addEventListener('click', toggleMenu));
+    
+    document.querySelectorAll('.mobile-nav a').forEach(link => {
+      link.addEventListener('click', toggleMenu);
+    });
 
+    // Fade up animation observer
     const fadeElements = document.querySelectorAll('.fade-up');
     const fadeObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
     }, { threshold: 0.1 });
+
     fadeElements.forEach(element => fadeObserver.observe(element));
 
+    // Cursor movement
     if (cursor && window.matchMedia('(hover: hover) and (pointer: fine)').matches && window.innerWidth > 992) {
-      document.addEventListener('mousemove', (e) => { cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px'; });
-      document.addEventListener('mousedown', () => cursor.classList.add('clicking'));
-      document.addEventListener('mouseup', () => cursor.classList.remove('clicking'));
+      document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+      });
+      
+      document.addEventListener('mousedown', () => {
+        cursor.classList.add('clicking');
+      });
+      
+      document.addEventListener('mouseup', () => {
+        cursor.classList.remove('clicking');
+      });
     }
+
+    // Counter animation
+    function animateCounters() {
+      const counters = document.querySelectorAll('.counter-num');
+      counters.forEach(counter => {
+        const target = parseInt(counter.getAttribute('data-target'));
+        const duration = 2000;
+        const step = target / (duration / 16);
+        let current = 0;
+        
+        const updateCounter = () => {
+          current += step;
+          if (current < target) {
+            counter.textContent = Math.ceil(current);
+            requestAnimationFrame(updateCounter);
+          } else {
+            counter.textContent = target;
+          }
+        };
+        
+        updateCounter();
+      });
+    }
+
+    // Observe stats section for counter animation
+    const statsSection = document.querySelector('.stats');
+    if (statsSection) {
+      const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateCounters();
+            statsObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+      
+      statsObserver.observe(statsSection);
+    }
+
+    // Slider functionality
+    const sliderTrack = document.getElementById('sliderTrack');
+    const sliderDots = document.getElementById('sliderDots');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    
+    // Sample slider images (replace with actual images)
+    const sliderImages = [
+      '/appsware/assets/slider1.jpg',
+      '/appsware/assets/slider2.jpg',
+      '/appsware/assets/slider3.jpg',
+      '/appsware/assets/slider4.jpg',
+      '/appsware/assets/slider5.jpg',
+      '/appsware/assets/slider6.jpg'
+    ];
+    
+    let currentSlide = 0;
+    
+    function createSlider() {
+      if (!sliderTrack) return;
+      
+      // Create slides
+      sliderImages.forEach((img, index) => {
+        const slide = document.createElement('div');
+        slide.className = 'slider-slide';
+        slide.innerHTML = `<img src="${img}" alt="Journey Year ${index + 1}">`;
+        sliderTrack.appendChild(slide);
+      });
+      
+      // Create dots
+      sliderImages.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.className = `dot ${index === 0 ? 'active' : ''}`;
+        dot.addEventListener('click', () => goToSlide(index));
+        sliderDots.appendChild(dot);
+      });
+      
+      updateSlider();
+    }
+    
+    function updateSlider() {
+      sliderTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+      document.querySelectorAll('.dot').forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentSlide);
+      });
+    }
+    
+    function goToSlide(index) {
+      currentSlide = index;
+      updateSlider();
+    }
+    
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % sliderImages.length;
+      updateSlider();
+    }
+    
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + sliderImages.length) % sliderImages.length;
+      updateSlider();
+    }
+    
+    if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+    if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+    
+    // Auto-play slider
+    let sliderInterval = setInterval(nextSlide, 5000);
+    
+    // Reset interval on manual navigation
+    document.querySelector('.slider-container')?.addEventListener('mouseenter', () => {
+      clearInterval(sliderInterval);
+    });
+    
+    document.querySelector('.slider-container')?.addEventListener('mouseleave', () => {
+      sliderInterval = setInterval(nextSlide, 5000);
+    });
+    
+    // Initialize slider
+    createSlider();
+
+    // Handle window resize for cursor
+    window.addEventListener('resize', () => {
+      if (window.matchMedia('(hover: hover) and (pointer: fine)').matches && window.innerWidth > 992) {
+        if (cursor) cursor.style.display = 'block';
+      } else {
+        if (cursor) cursor.style.display = 'none';
+      }
+    });
   </script>
 </body>
 </html>
