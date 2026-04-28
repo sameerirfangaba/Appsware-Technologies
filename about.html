@@ -75,10 +75,10 @@
       font-family: 'Poppins', sans-serif;
     }
 
-    /* ========== NAVBAR - SCALES PROPERLY FOR ALL SCREEN SIZES ========== */
+    /* ========== NAVBAR - SCALES FOR ALL DISPLAY SIZES ========== */
     .navbar {
       position: fixed;
-      top: 0;
+      top: 20px;
       left: 50%;
       transform: translateX(-50%);
       width: 90%;
@@ -94,13 +94,13 @@
       z-index: 1000;
       border: 1px solid rgba(255, 0, 73, 0.12);
       transition: var(--transition);
-      margin-top: 20px;
     }
 
     .navbar.scrolled {
-      margin-top: 0;
+      top: 0;
       width: 100%;
-      border-radius: 0;
+      max-width: 100%;
+      border-radius: 0px;
       padding: 12px 5%;
       background: rgba(255, 255, 255, 0.98);
       box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
@@ -188,7 +188,7 @@
       top: 0;
       right: -100%;
       width: 70%;
-      max-width: 300px;
+      max-width: 280px;
       height: 100vh;
       background: white;
       box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
@@ -237,80 +237,84 @@
       visibility: visible;
     }
 
-    /* RESPONSIVE BREAKPOINTS FOR ALL SCREEN SIZES */
+    /* NAVBAR SCALING FOR ALL SCREEN SIZES */
     
-    /* Extra large screens (36 inch, 4K, ultrawide) */
+    /* 4K+ Screens (36 inch and above) */
     @media (min-width: 2560px) {
       .navbar {
         max-width: 2200px;
-        padding: 25px 70px;
+        padding: 28px 70px;
         border-radius: 100px;
-        margin-top: 30px;
+        top: 30px;
+      }
+      .navbar.scrolled {
+        padding: 20px 5%;
       }
       .logo img {
-        height: 70px;
+        height: 75px;
       }
       .nav-links {
-        gap: 60px;
+        gap: 65px;
       }
       .nav-links a {
-        font-size: 1.4rem;
-      }
-      .nav-links a::after {
-        bottom: -8px;
-        height: 3px;
+        font-size: 1.5rem;
       }
     }
 
-    /* Large desktop screens (27-36 inch) */
+    /* Large Desktop (27-36 inch) */
     @media (min-width: 1920px) and (max-width: 2559px) {
       .navbar {
         max-width: 1900px;
-        padding: 22px 60px;
-        border-radius: 90px;
-        margin-top: 28px;
+        padding: 24px 60px;
+        border-radius: 95px;
+        top: 28px;
+      }
+      .navbar.scrolled {
+        padding: 18px 5%;
       }
       .logo img {
-        height: 62px;
+        height: 65px;
       }
       .nav-links {
-        gap: 50px;
+        gap: 55px;
       }
       .nav-links a {
-        font-size: 1.25rem;
-      }
-      .nav-links a::after {
-        bottom: -8px;
-        height: 3px;
+        font-size: 1.3rem;
       }
     }
 
-    /* Desktop screens (20-27 inch) */
+    /* Desktop (20-27 inch) */
     @media (min-width: 1600px) and (max-width: 1919px) {
       .navbar {
-        max-width: 1600px;
+        max-width: 1700px;
         padding: 20px 50px;
-        border-radius: 85px;
-        margin-top: 25px;
+        border-radius: 90px;
+        top: 25px;
+      }
+      .navbar.scrolled {
+        padding: 16px 5%;
       }
       .logo img {
-        height: 55px;
+        height: 58px;
       }
       .nav-links {
-        gap: 42px;
+        gap: 45px;
       }
       .nav-links a {
-        font-size: 1.15rem;
+        font-size: 1.2rem;
       }
     }
 
-    /* Standard desktop/laptop (15-20 inch) */
+    /* Standard Desktop/Laptop (15-20 inch) */
     @media (min-width: 1200px) and (max-width: 1599px) {
       .navbar {
         max-width: 1400px;
         padding: 15px 40px;
         border-radius: 80px;
-        margin-top: 20px;
+        top: 20px;
+      }
+      .navbar.scrolled {
+        padding: 12px 5%;
       }
       .logo img {
         height: 48px;
@@ -323,13 +327,17 @@
       }
     }
 
-    /* Small desktop/laptop (13-15 inch) */
+    /* Small Desktop/Laptop (13-15 inch) */
     @media (min-width: 993px) and (max-width: 1199px) {
       .navbar {
         width: 93%;
+        max-width: 1100px;
         padding: 13px 32px;
         border-radius: 70px;
-        margin-top: 18px;
+        top: 18px;
+      }
+      .navbar.scrolled {
+        padding: 10px 5%;
       }
       .logo img {
         height: 40px;
@@ -347,11 +355,10 @@
       .navbar {
         width: 95%;
         padding: 14px 28px;
+        top: 15px;
         border-radius: 60px;
-        margin-top: 15px;
       }
       .navbar.scrolled {
-        margin-top: 0;
         border-radius: 0px;
         padding: 12px 5%;
       }
@@ -366,16 +373,15 @@
       }
     }
 
-    /* Large phones */
+    /* Large Phones */
     @media (max-width: 768px) {
       .navbar {
         width: 96%;
         padding: 12px 22px;
+        top: 12px;
         border-radius: 50px;
-        margin-top: 12px;
       }
       .navbar.scrolled {
-        margin-top: 0;
         padding: 10px 5%;
       }
       .logo img {
@@ -387,16 +393,15 @@
       }
     }
 
-    /* Small phones */
+    /* Small Phones */
     @media (max-width: 480px) {
       .navbar {
         width: 97%;
         padding: 10px 18px;
+        top: 10px;
         border-radius: 40px;
-        margin-top: 10px;
       }
       .navbar.scrolled {
-        margin-top: 0;
         padding: 8px 5%;
         border-radius: 0px;
       }
