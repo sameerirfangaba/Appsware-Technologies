@@ -31,9 +31,11 @@
       --transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
     }
 
-    /* Hide default cursor globally */
-    body, a, button {
-      cursor: none !important;
+    /* Hide default cursor globally on desktop only */
+    @media (hover: hover) and (pointer: fine) and (min-width: 1025px) {
+      body, a, button {
+        cursor: none !important;
+      }
     }
 
     /* Custom Cursor Styling */
@@ -73,7 +75,7 @@
       font-family: 'Poppins', sans-serif;
     }
 
-    /* ========== NAVBAR WITH HAMBURGER MENU ========== */
+    /* ========== RESPONSIVE NAVBAR ========== */
     .navbar {
       position: fixed;
       top: 20px;
@@ -186,7 +188,7 @@
       top: 0;
       right: -100%;
       width: 70%;
-      max-width: 300px;
+      max-width: 280px;
       height: 100vh;
       background: white;
       box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
@@ -235,6 +237,79 @@
       visibility: visible;
     }
 
+    /* Desktop Navigation */
+    @media (min-width: 993px) {
+      .navbar {
+        width: 90%;
+        padding: 12px 32px;
+      }
+    }
+
+    /* Tablet Navigation */
+    @media (max-width: 992px) {
+      .navbar {
+        width: 95%;
+        padding: 12px 24px;
+        top: 15px;
+        border-radius: 50px;
+      }
+      .navbar.scrolled {
+        border-radius: 0px;
+        padding: 12px 5%;
+      }
+      .nav-links {
+        display: none;
+      }
+      .hamburger {
+        display: flex;
+      }
+      .logo img {
+        height: 38px;
+      }
+    }
+
+    /* Mobile Navigation */
+    @media (max-width: 768px) {
+      .navbar {
+        width: 96%;
+        padding: 10px 20px;
+      }
+      .logo img {
+        height: 35px;
+      }
+      .navbar.scrolled {
+        padding: 10px 5%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .navbar {
+        width: 97%;
+        padding: 8px 16px;
+        top: 10px;
+        border-radius: 40px;
+      }
+      .logo img {
+        height: 30px;
+      }
+      .navbar.scrolled {
+        padding: 8px 5%;
+        border-radius: 0px;
+      }
+      .hamburger span {
+        width: 22px;
+        height: 2px;
+      }
+      .mobile-nav {
+        width: 80%;
+        max-width: 250px;
+        padding: 90px 20px 20px;
+      }
+      .mobile-nav a {
+        font-size: 1rem;
+      }
+    }
+
     /* ========== PAGE HEADER ========== */
     .page-header {
       min-height: 50vh;
@@ -264,6 +339,30 @@
       max-width: 700px;
       margin: 0 auto;
       line-height: 1.6;
+    }
+
+    @media (max-width: 992px) {
+      .page-header {
+        padding: 130px 5% 60px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .page-header {
+        padding: 160px 5% 50px;
+      }
+      .page-header h1 {
+        font-size: 1.8rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .page-header {
+        padding: 180px 5% 40px;
+      }
+      .page-header h1 {
+        font-size: 1.6rem;
+      }
     }
 
     /* ========== INNOVATION SECTION ========== */
@@ -392,6 +491,41 @@
       line-height: 1.6;
     }
 
+    @media (max-width: 992px) {
+      .innovation {
+        padding: 60px 5%;
+      }
+      .innovation-header h2 {
+        font-size: 1.6rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .specialties-horizontal {
+        flex-direction: column;
+        align-items: center;
+      }
+      .specialties-horizontal .item {
+        min-width: 100%;
+        max-width: 100%;
+        flex-direction: row;
+        text-align: left;
+        padding: 1.2rem;
+      }
+      .specialties-horizontal .item-icon {
+        margin: 0 15px 0 0;
+        width: 55px;
+        height: 55px;
+        font-size: 1.5rem;
+      }
+      .specialties-horizontal .item-text {
+        text-align: left;
+      }
+      .lead-text, .closing-text {
+        font-size: 0.85rem;
+      }
+    }
+
     /* ========== STATS SECTION ========== */
     .stats {
       display: flex;
@@ -420,6 +554,22 @@
       color: rgba(255, 255, 255, 0.8);
       font-weight: 500;
       font-size: clamp(0.8rem, 2vw, 1rem);
+    }
+
+    @media (max-width: 992px) {
+      .stats {
+        gap: 30px;
+        padding: 50px 5%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .stat-item {
+        min-width: 130px;
+      }
+      .stat-number {
+        font-size: 1.8rem;
+      }
     }
 
     /* ========== VISION SECTION ========== */
@@ -539,6 +689,21 @@
 
     .mission-image img:hover {
       transform: scale(1.02);
+    }
+
+    @media (max-width: 992px) {
+      .vision-section, .mission-section {
+        padding: 50px 5%;
+      }
+      .vision-container, .mission-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+      }
+      .vision-content h2::after, .mission-content h2::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
     }
 
     /* ========== WHY APPWARE SECTION ========== */
@@ -661,6 +826,21 @@
       color: var(--dark);
     }
 
+    @media (max-width: 992px) {
+      .why-appware {
+        padding: 50px 5%;
+      }
+      .why-grid {
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .why-card {
+        padding: 1.2rem;
+      }
+    }
+
     /* ========== FOOTER ========== */
     .footer {
       background: var(--dark);
@@ -744,49 +924,18 @@
       width: 100%;
     }
 
-    /* ========== RESPONSIVE BREAKPOINTS ========== */
     @media (max-width: 992px) {
-      .nav-links { display: none; }
-      .hamburger { display: flex; }
-      .navbar { width: 95%; padding: 12px 24px; top: 15px; border-radius: 50px; }
-      .navbar.scrolled { border-radius: 0px; padding: 12px 5%; }
-      .page-header { padding: 130px 5% 60px; }
-      .vision-container, .mission-container { flex-direction: column; text-align: center; gap: 30px; }
-      .vision-content h2::after, .mission-content h2::after { left: 50%; transform: translateX(-50%); }
-      .stats { gap: 30px; padding: 50px 5%; }
-      .footer { flex-direction: column; text-align: center; }
-      .social-links { justify-content: center; }
-      .innovation { padding: 60px 5%; }
-      .why-appware { padding: 50px 5%; }
-      .custom-cursor { display: none; }
-      body, a, button { cursor: auto !important; }
+      .footer {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 5% 30px;
+      }
+      .social-links {
+        justify-content: center;
+      }
     }
 
-    @media (max-width: 768px) {
-      .page-header { padding: 160px 5% 50px; }
-      .page-header h1 { font-size: 1.8rem; }
-      .innovation-header h2 { font-size: 1.6rem; }
-      .specialties-horizontal { flex-direction: column; align-items: center; }
-      .specialties-horizontal .item { min-width: 100%; max-width: 100%; flex-direction: row; text-align: left; padding: 1.2rem; }
-      .specialties-horizontal .item-icon { margin: 0 15px 0 0; width: 55px; height: 55px; font-size: 1.5rem; }
-      .specialties-horizontal .item-text { text-align: left; }
-      .why-grid { gap: 20px; }
-      .footer { padding: 40px 5% 30px; }
-      .navbar { width: 95%; padding: 10px 20px; }
-      .logo img { height: 35px; }
-    }
-
-    @media (max-width: 480px) {
-      .page-header { padding: 180px 5% 40px; }
-      .page-header h1 { font-size: 1.6rem; }
-      .lead-text, .closing-text { font-size: 0.85rem; }
-      .stat-item { min-width: 130px; }
-      .stat-number { font-size: 1.8rem; }
-      .why-card { padding: 1.2rem; }
-      .navbar { width: 96%; padding: 8px 16px; }
-      .logo img { height: 30px; }
-    }
-
+    /* Animation Classes */
     .fade-up {
       opacity: 0;
       transform: translateY(30px);
@@ -802,7 +951,7 @@
 <body>
 
   <!-- Custom Cursor -->
-  <div class="appsware-cursor"></div>
+  <div class="appsware-cursor" style="display: none;"></div>
 
   <!-- NAVBAR -->
   <nav class="navbar">
@@ -1013,6 +1162,14 @@
   </footer>
 
   <script>
+    // Show/hide custom cursor based on device
+    const cursor = document.querySelector('.appsware-cursor');
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches && window.innerWidth > 992) {
+      if (cursor) cursor.style.display = 'block';
+    } else {
+      if (cursor) cursor.style.display = 'none';
+    }
+
     // Navbar scroll effect
     window.addEventListener('scroll', function() {
       const navbar = document.querySelector('.navbar');
@@ -1094,24 +1251,18 @@
       fadeObserver.observe(element);
     });
 
-    // Custom Cursor - Only on non-touch devices
-    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches && window.innerWidth > 992) {
-      const cursor = document.querySelector('.appsware-cursor');
-      
-      if (cursor) {
-        document.addEventListener('mousemove', (e) => {
-          cursor.style.left = e.clientX + 'px';
-          cursor.style.top = e.clientY + 'px';
-        });
-
-        document.addEventListener('mousedown', () => {
-          cursor.classList.add('clicking');
-        });
-
-        document.addEventListener('mouseup', () => {
-          cursor.classList.remove('clicking');
-        });
-      }
+    // Custom Cursor Movement
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches && window.innerWidth > 992 && cursor) {
+      document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+      });
+      document.addEventListener('mousedown', () => {
+        cursor.classList.add('clicking');
+      });
+      document.addEventListener('mouseup', () => {
+        cursor.classList.remove('clicking');
+      });
     }
 
     console.log('Appsware Technologies — About Page');
