@@ -31,9 +31,11 @@
       --transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
     }
 
-    /* Hide default cursor globally */
-    body, a, button {
-      cursor: none !important;
+    /* Hide default cursor globally on desktop only */
+    @media (hover: hover) and (pointer: fine) and (min-width: 1025px) {
+      body, a, button {
+        cursor: none !important;
+      }
     }
 
     /* Custom Cursor Styling */
@@ -73,7 +75,7 @@
       font-family: 'Poppins', sans-serif;
     }
 
-    /* ========== NAVBAR WITH HAMBURGER MENU ========== */
+    /* ========== NAVBAR WITH HAMBURGER MENU - FULLY RESPONSIVE ========== */
     .navbar {
       position: fixed;
       top: 20px;
@@ -186,7 +188,7 @@
       top: 0;
       right: -100%;
       width: 70%;
-      max-width: 300px;
+      max-width: 280px;
       height: 100vh;
       background: white;
       box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
@@ -233,6 +235,53 @@
     .overlay.active {
       opacity: 1;
       visibility: visible;
+    }
+
+    /* ========== RESPONSIVE NAVBAR ========== */
+    @media (max-width: 992px) {
+      .navbar {
+        width: 95%;
+        padding: 12px 24px;
+        top: 15px;
+        border-radius: 50px;
+      }
+      .navbar.scrolled {
+        border-radius: 0px;
+        padding: 12px 5%;
+      }
+      .nav-links {
+        display: none;
+      }
+      .hamburger {
+        display: flex;
+      }
+      .logo img {
+        height: 38px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        width: 96%;
+        padding: 10px 20px;
+      }
+      .logo img {
+        height: 35px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .navbar {
+        width: 97%;
+        padding: 8px 16px;
+        top: 10px;
+      }
+      .logo img {
+        height: 30px;
+      }
+      .navbar.scrolled {
+        padding: 8px 5%;
+      }
     }
 
     /* ========== HERO SECTION ========== */
@@ -287,6 +336,36 @@
       0% { transform: translateY(0px); }
       50% { transform: translateY(-12px); }
       100% { transform: translateY(0px); }
+    }
+
+    @media (max-width: 992px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 130px 5% 60px;
+        gap: 30px;
+      }
+      .hero-left p {
+        margin: 0 auto;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        padding: 160px 5% 50px;
+      }
+      .hero-left h1 {
+        font-size: 1.8rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding: 180px 5% 40px;
+      }
+      .hero-left h1 {
+        font-size: 1.6rem;
+      }
     }
 
     /* ========== INNOVATION SECTION ========== */
@@ -415,6 +494,41 @@
       line-height: 1.6;
     }
 
+    @media (max-width: 992px) {
+      .innovation {
+        padding: 60px 5%;
+      }
+      .innovation-header h2 {
+        font-size: 1.6rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .specialties-horizontal {
+        flex-direction: column;
+        align-items: center;
+      }
+      .specialties-horizontal .item {
+        min-width: 100%;
+        max-width: 100%;
+        flex-direction: row;
+        text-align: left;
+        padding: 1.2rem;
+      }
+      .specialties-horizontal .item-icon {
+        margin: 0 15px 0 0;
+        width: 55px;
+        height: 55px;
+        font-size: 1.5rem;
+      }
+      .specialties-horizontal .item-text {
+        text-align: left;
+      }
+      .lead-text, .closing-text {
+        font-size: 0.85rem;
+      }
+    }
+
     /* ========== STATS SECTION ========== */
     .stats {
       display: flex;
@@ -445,7 +559,23 @@
       font-size: clamp(0.8rem, 2vw, 1rem);
     }
 
-    /* ========== VISION SECTION ========== */
+    @media (max-width: 992px) {
+      .stats {
+        gap: 30px;
+        padding: 50px 5%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .stat-item {
+        min-width: 130px;
+      }
+      .stat-number {
+        font-size: 1.8rem;
+      }
+    }
+
+    /* ========== VISION & MISSION SECTIONS ========== */
     .vision-section {
       padding: 80px 8%;
       background: white;
@@ -504,7 +634,6 @@
       transform: scale(1.02);
     }
 
-    /* ========== MISSION SECTION ========== */
     .mission-section {
       padding: 80px 8%;
       background: var(--gray-bg);
@@ -564,6 +693,21 @@
       transform: scale(1.02);
     }
 
+    @media (max-width: 992px) {
+      .vision-section, .mission-section {
+        padding: 50px 5%;
+      }
+      .vision-container, .mission-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+      }
+      .vision-content h2::after, .mission-content h2::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+
     /* ========== FUTURE SECTION ========== */
     .future-section {
       background: linear-gradient(135deg, #FFFFFF, #FFF5F7);
@@ -597,6 +741,12 @@
       font-size: clamp(0.9rem, 2.5vw, 1.1rem);
       color: var(--text-muted);
       line-height: 1.7;
+    }
+
+    @media (max-width: 992px) {
+      .future-section {
+        padding: 60px 5%;
+      }
     }
 
     /* ========== CEO MESSAGE SECTION ========== */
@@ -669,7 +819,27 @@
       margin-top: 20px;
     }
 
-    /* ========== PRODUCTION MANAGER SLIDER SECTION - WHITE BACKGROUND ========== */
+    @media (max-width: 992px) {
+      .ceo-section {
+        padding: 60px 5%;
+      }
+      .ceo-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+      }
+      .ceo-divider {
+        margin: 15px auto 0;
+      }
+      .ceo-message p {
+        font-size: 0.9rem;
+      }
+      .ceo-name {
+        font-size: 1.1rem;
+      }
+    }
+
+    /* ========== PRODUCTION MANAGER SLIDER SECTION ========== */
     .production-slider-section {
       padding: 80px 8%;
       background: #FFFFFF;
@@ -793,6 +963,28 @@
       border-radius: 10px;
     }
 
+    @media (max-width: 992px) {
+      .production-slider-section {
+        padding: 60px 5%;
+      }
+      .slider-btn {
+        width: 40px;
+        height: 40px;
+        margin: 0 10px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .slider-btn {
+        width: 35px;
+        height: 35px;
+        margin: 0 8px;
+      }
+      .slider-btn i {
+        font-size: 1.2rem;
+      }
+    }
+
     /* ========== ASO MANAGER SECTION ========== */
     .aso-manager-section {
       padding: 80px 8%;
@@ -821,10 +1013,6 @@
       aspect-ratio: 1/1;
       object-fit: cover;
       transition: var(--transition);
-    }
-
-    .aso-image img:hover {
-      transform: scale(1.02);
     }
 
     .aso-content {
@@ -882,6 +1070,19 @@
       color: var(--text-muted);
       line-height: 1.7;
       margin-bottom: 20px;
+    }
+
+    @media (max-width: 992px) {
+      .aso-manager-section {
+        padding: 60px 5%;
+      }
+      .aso-container {
+        flex-direction: column;
+        text-align: center;
+      }
+      .stats-highlight {
+        justify-content: center;
+      }
     }
 
     /* ========== WHY APPWARE SECTION ========== */
@@ -1004,6 +1205,21 @@
       color: var(--dark);
     }
 
+    @media (max-width: 992px) {
+      .why-appware {
+        padding: 50px 5%;
+      }
+      .why-grid {
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .why-card {
+        padding: 1.2rem;
+      }
+    }
+
     /* ========== TECH SLIDER SECTION ========== */
     .tech-slider-section {
       padding: 80px 8%;
@@ -1080,6 +1296,35 @@
     @keyframes scroll {
       0% { transform: translateX(0); }
       100% { transform: translateX(-50%); }
+    }
+
+    @media (max-width: 992px) {
+      .tech-slider-section {
+        padding: 60px 5%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .tech-item {
+        padding: 12px 20px;
+      }
+      .tech-item img {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .tech-item {
+        padding: 10px 15px;
+      }
+      .tech-item img {
+        width: 35px;
+        height: 35px;
+      }
+      .tech-item span {
+        font-size: 0.7rem;
+      }
     }
 
     /* ========== FOOTER ========== */
@@ -1165,65 +1410,18 @@
       width: 100%;
     }
 
-    /* ========== RESPONSIVE BREAKPOINTS ========== */
     @media (max-width: 992px) {
-      .nav-links { display: none; }
-      .hamburger { display: flex; }
-      .navbar { width: 95%; padding: 12px 24px; top: 15px; border-radius: 50px; }
-      .navbar.scrolled { border-radius: 0px; padding: 12px 5%; }
-      .hero { flex-direction: column; text-align: center; padding: 130px 5% 60px; gap: 30px; }
-      .hero-left p { margin: 0 auto; }
-      .vision-container, .mission-container { flex-direction: column; text-align: center; gap: 30px; }
-      .vision-content h2::after, .mission-content h2::after { left: 50%; transform: translateX(-50%); }
-      .stats { gap: 30px; padding: 50px 5%; }
-      .ceo-container { flex-direction: column; text-align: center; gap: 30px; }
-      .ceo-divider { margin: 15px auto 0; }
-      .aso-container { flex-direction: column; text-align: center; }
-      .stats-highlight { justify-content: center; }
-      .footer { flex-direction: column; text-align: center; }
-      .social-links { justify-content: center; }
-      .innovation { padding: 60px 5%; }
-      .why-appware { padding: 50px 5%; }
-      .tech-slider-section { padding: 60px 5%; }
-      .production-slider-section { padding: 60px 5%; }
-      .custom-cursor { display: none; }
-      body, a, button { cursor: auto !important; }
+      .footer {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 5% 30px;
+      }
+      .social-links {
+        justify-content: center;
+      }
     }
 
-    @media (max-width: 768px) {
-      .hero { padding: 160px 5% 50px; }
-      .hero-left h1 { font-size: 1.8rem; }
-      .innovation-header h2 { font-size: 1.6rem; }
-      .specialties-horizontal { flex-direction: column; align-items: center; }
-      .specialties-horizontal .item { min-width: 100%; max-width: 100%; flex-direction: row; text-align: left; padding: 1.2rem; }
-      .specialties-horizontal .item-icon { margin: 0 15px 0 0; width: 55px; height: 55px; font-size: 1.5rem; }
-      .specialties-horizontal .item-text { text-align: left; }
-      .why-grid { gap: 20px; }
-      .tech-item { padding: 12px 20px; }
-      .tech-item img { width: 40px; height: 40px; }
-      .footer { padding: 40px 5% 30px; }
-      .navbar { width: 95%; padding: 10px 20px; }
-      .logo img { height: 35px; }
-      .slider-btn { width: 40px; height: 40px; margin: 0 10px; }
-    }
-
-    @media (max-width: 480px) {
-      .hero { padding: 180px 5% 40px; }
-      .hero-left h1 { font-size: 1.6rem; }
-      .lead-text, .closing-text { font-size: 0.85rem; }
-      .stat-item { min-width: 130px; }
-      .stat-number { font-size: 1.8rem; }
-      .ceo-message p { font-size: 0.9rem; }
-      .ceo-name { font-size: 1.1rem; }
-      .why-card { padding: 1.2rem; }
-      .tech-item { padding: 10px 15px; }
-      .tech-item img { width: 35px; height: 35px; }
-      .tech-item span { font-size: 0.7rem; }
-      .navbar { width: 96%; padding: 8px 16px; }
-      .logo img { height: 30px; }
-      .slider-btn { width: 35px; height: 35px; margin: 0 8px; }
-    }
-
+    /* Animation Classes */
     .fade-up {
       opacity: 0;
       transform: translateY(30px);
@@ -1238,8 +1436,8 @@
 </head>
 <body>
 
-  <!-- Custom Cursor -->
-  <div class="appsware-cursor"></div>
+  <!-- Custom Cursor - Only visible on desktop -->
+  <div class="appsware-cursor" style="display: none;"></div>
 
   <!-- NAVBAR -->
   <nav class="navbar">
@@ -1399,7 +1597,7 @@
     </div>
   </section>
 
-  <!-- PRODUCTION MANAGER JOURNEY SLIDER SECTION - WHITE BACKGROUND WITH SLOW SLIDING -->
+  <!-- PRODUCTION MANAGER JOURNEY SLIDER -->
   <section class="production-slider-section fade-up">
     <div class="slider-container">
       <div class="slider-header">
@@ -1410,24 +1608,12 @@
         <button class="slider-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
         <div class="slider-main">
           <div class="slider-track" id="sliderTrack">
-            <div class="slider-slide">
-              <img src="/appsware/assets/Sultan-pages-images-0.jpg" alt="Sultan Journey Year 1">
-            </div>
-            <div class="slider-slide">
-              <img src="/appsware/assets/Sultan-pages-images-1.jpg" alt="Sultan Journey Year 2">
-            </div>
-            <div class="slider-slide">
-              <img src="/appsware/assets/Sultan-pages-images-2.jpg" alt="Sultan Journey Year 3">
-            </div>
-            <div class="slider-slide">
-              <img src="/appsware/assets/Sultan-pages-images-3.jpg" alt="Sultan Journey Year 4">
-            </div>
-            <div class="slider-slide">
-              <img src="/appsware/assets/Sultan-pages-images-4.jpg" alt="Sultan Journey Year 5">
-            </div>
-            <div class="slider-slide">
-              <img src="/appsware/assets/Sultan-pages-images-5.jpg" alt="Sultan Journey Year 6">
-            </div>
+            <div class="slider-slide"><img src="/appsware/assets/Sultan-pages-images-0.jpg" alt="Sultan Journey Year 1"></div>
+            <div class="slider-slide"><img src="/appsware/assets/Sultan-pages-images-1.jpg" alt="Sultan Journey Year 2"></div>
+            <div class="slider-slide"><img src="/appsware/assets/Sultan-pages-images-2.jpg" alt="Sultan Journey Year 3"></div>
+            <div class="slider-slide"><img src="/appsware/assets/Sultan-pages-images-3.jpg" alt="Sultan Journey Year 4"></div>
+            <div class="slider-slide"><img src="/appsware/assets/Sultan-pages-images-4.jpg" alt="Sultan Journey Year 5"></div>
+            <div class="slider-slide"><img src="/appsware/assets/Sultan-pages-images-5.jpg" alt="Sultan Journey Year 6"></div>
           </div>
         </div>
         <button class="slider-btn next-btn"><i class="fas fa-chevron-right"></i></button>
@@ -1447,18 +1633,9 @@
         <h2>Syed Ammar Rashid</h2>
         <div class="aso-name">ASO Manager</div>
         <div class="stats-highlight">
-          <div class="stat-highlight">
-            <div class="number">10M+</div>
-            <div class="label">App Installs</div>
-          </div>
-          <div class="stat-highlight">
-            <div class="number">4.8★</div>
-            <div class="label">Avg Rating</div>
-          </div>
-          <div class="stat-highlight">
-            <div class="number">Top 10</div>
-            <div class="label">Play Store Rank</div>
-          </div>
+          <div class="stat-highlight"><div class="number">10M+</div><div class="label">App Installs</div></div>
+          <div class="stat-highlight"><div class="number">4.8★</div><div class="label">Avg Rating</div></div>
+          <div class="stat-highlight"><div class="number">Top 10</div><div class="label">Play Store Rank</div></div>
         </div>
         <p>Syed Ammar Rashid, our dedicated ASO Manager, has been instrumental in driving over 10 million+ installs across multiple apps. His expertise in keyword optimization, conversion rate optimization, and Play Store algorithms has consistently pushed our apps to top rankings globally.</p>
         <p>With his strategic approach to App Store Optimization, Ammar has helped Appsware achieve unprecedented visibility and user acquisition growth.</p>
@@ -1474,40 +1651,14 @@
         <p>Appsware Technologies transforms complex ideas into scalable, market-leading realities. Since 2019, we have specialized in engineering digital success through innovation and technical excellence.</p>
       </div>
       <div class="why-grid">
-        <div class="why-card">
-          <div class="card-icon"><i class="fas fa-chart-line"></i></div>
-          <h3>Proven Scale</h3>
-          <p>With 50+ apps and 100M+ Play Store installs, we have a track record of building Android products that resonate globally.</p>
-        </div>
-        <div class="why-card">
-          <div class="card-icon"><i class="fas fa-cubes"></i></div>
-          <h3>Complete Solutions</h3>
-          <p>From specialized Android Development and Python Engineering to Google Ads and Play Store Optimization, we cover the full digital lifecycle.</p>
-        </div>
-        <div class="why-card">
-          <div class="card-icon"><i class="fas fa-hand-fist"></i></div>
-          <h3>"We Can" Philosophy</h3>
-          <p>Our unified team leverages collective expertise to solve complex challenges and deliver high-impact results.</p>
-        </div>
-        <div class="why-card">
-          <div class="card-icon"><i class="fas fa-microchip"></i></div>
-          <h3>Future-Ready</h3>
-          <p>We integrate AI, 3D modeling, and data-driven marketing to keep your technology at the forefront of the industry.</p>
-        </div>
-        <div class="why-card">
-          <div class="card-icon"><i class="fas fa-rocket"></i></div>
-          <h3>Unicorn Vision</h3>
-          <p>Led by Mr. Maaz Bin Jamil, we are driven by hyper-growth, security, and the goal of becoming a global IT leader.</p>
-        </div>
-        <div class="why-card">
-          <div class="card-icon"><i class="fas fa-medal"></i></div>
-          <h3>The Result</h3>
-          <p>We merge the agility of a tech disruptor with the precision of industry experts to dominate the Android ecosystem.</p>
-        </div>
+        <div class="why-card"><div class="card-icon"><i class="fas fa-chart-line"></i></div><h3>Proven Scale</h3><p>With 50+ apps and 100M+ Play Store installs, we have a track record of building Android products that resonate globally.</p></div>
+        <div class="why-card"><div class="card-icon"><i class="fas fa-cubes"></i></div><h3>Complete Solutions</h3><p>From specialized Android Development and Python Engineering to Google Ads and Play Store Optimization, we cover the full digital lifecycle.</p></div>
+        <div class="why-card"><div class="card-icon"><i class="fas fa-hand-fist"></i></div><h3>"We Can" Philosophy</h3><p>Our unified team leverages collective expertise to solve complex challenges and deliver high-impact results.</p></div>
+        <div class="why-card"><div class="card-icon"><i class="fas fa-microchip"></i></div><h3>Future-Ready</h3><p>We integrate AI, 3D modeling, and data-driven marketing to keep your technology at the forefront of the industry.</p></div>
+        <div class="why-card"><div class="card-icon"><i class="fas fa-rocket"></i></div><h3>Unicorn Vision</h3><p>Led by Mr. Maaz Bin Jamil, we are driven by hyper-growth, security, and the goal of becoming a global IT leader.</p></div>
+        <div class="why-card"><div class="card-icon"><i class="fas fa-medal"></i></div><h3>The Result</h3><p>We merge the agility of a tech disruptor with the precision of industry experts to dominate the Android ecosystem.</p></div>
       </div>
-      <div class="why-result">
-        <p><i class="fas fa-quote-left"></i> The Appsware Edge: Engineering digital success through innovation and technical excellence. <i class="fas fa-quote-right"></i></p>
-      </div>
+      <div class="why-result"><p><i class="fas fa-quote-left"></i> The Appsware Edge: Engineering digital success through innovation and technical excellence. <i class="fas fa-quote-right"></i></p></div>
     </div>
   </section>
 
@@ -1549,32 +1700,23 @@
   <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-col">
-      <div class="footer-logo">
-        <img src="/appsware/assets/footer logo.png" alt="Appsware Logo">
-        <p>"We build high-impact mobile technologies that prioritize maximum efficiency and a seamless user experience."</p>
-      </div>
-      <div class="social-links">
-        <a href="https://www.linkedin.com/company/appswaretechnologies/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-      </div>
+      <div class="footer-logo"><img src="/appsware/assets/footer logo.png" alt="Appsware Logo"><p>"We build high-impact mobile technologies that prioritize maximum efficiency and a seamless user experience."</p></div>
+      <div class="social-links"><a href="https://www.linkedin.com/company/appswaretechnologies/" target="_blank"><i class="fab fa-linkedin-in"></i></a></div>
     </div>
-    <div class="footer-col">
-      <h4>Explore</h4>
-      <p><a href="index.html">Home</a></p>
-      <p><a href="about.html">About Us</a></p>
-      <p><a href="careers.html">Careers</a></p>
-      <p><a href="events.html">Events</a></p>
-      <p><a href="contact.html">Contact Us</a></p>
-    </div>
-    <div class="footer-col">
-      <h4>Connect</h4>
-      <p>hello@appsware.com</p>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2025 Appsware Technologies — Innovation Beyond Limits</p>
-    </div>
+    <div class="footer-col"><h4>Explore</h4><p><a href="index.html">Home</a></p><p><a href="about.html">About Us</a></p><p><a href="careers.html">Careers</a></p><p><a href="events.html">Events</a></p><p><a href="contact.html">Contact Us</a></p></div>
+    <div class="footer-col"><h4>Connect</h4><p>hello@appsware.com</p></div>
+    <div class="footer-bottom"><p>© 2025 Appsware Technologies — Innovation Beyond Limits</p></div>
   </footer>
 
   <script>
+    // Show/hide custom cursor based on device
+    const cursor = document.querySelector('.appsware-cursor');
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches && window.innerWidth > 992) {
+      if (cursor) cursor.style.display = 'block';
+    } else {
+      if (cursor) cursor.style.display = 'none';
+    }
+
     // Navbar scroll effect
     window.addEventListener('scroll', function() {
       const navbar = document.querySelector('.navbar');
@@ -1638,7 +1780,7 @@
     }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
     fadeElements.forEach(element => fadeObserver.observe(element));
 
-    // Slider Functionality - SLOW SPEED (30 seconds per slide = 30000ms)
+    // Slider Functionality
     const track = document.getElementById('sliderTrack');
     const slides = document.querySelectorAll('.slider-slide');
     const prevBtn = document.querySelector('.prev-btn');
@@ -1653,7 +1795,6 @@
       document.querySelectorAll('.dot').forEach((dot, index) => {
         dot.classList.toggle('active', index === currentIndex);
       });
-      // Reset auto-slide timer when manually changed
       resetAutoSlide();
     }
 
@@ -1674,7 +1815,7 @@
       autoSlideInterval = setInterval(() => {
         currentIndex = (currentIndex + 1) % totalSlides;
         updateSlider();
-      }, 35000); // 35 seconds per slide (slightly slower for better viewing)
+      }, 35000);
     }
 
     function resetAutoSlide() {
@@ -1682,30 +1823,30 @@
       startAutoSlide();
     }
 
-    prevBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-      updateSlider();
-    });
+    if (prevBtn && nextBtn) {
+      prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+        updateSlider();
+      });
+      nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        updateSlider();
+      });
+    }
 
-    nextBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex + 1) % totalSlides;
-      updateSlider();
-    });
+    if (dotsContainer && slides.length > 0) {
+      createDots();
+      startAutoSlide();
+    }
 
-    createDots();
-    startAutoSlide(); // Start auto-sliding with 35 second interval
-
-    // Custom Cursor
-    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches && window.innerWidth > 992) {
-      const cursor = document.querySelector('.appsware-cursor');
-      if (cursor) {
-        document.addEventListener('mousemove', (e) => {
-          cursor.style.left = e.clientX + 'px';
-          cursor.style.top = e.clientY + 'px';
-        });
-        document.addEventListener('mousedown', () => cursor.classList.add('clicking'));
-        document.addEventListener('mouseup', () => cursor.classList.remove('clicking'));
-      }
+    // Custom Cursor Movement
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches && window.innerWidth > 992 && cursor) {
+      document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+      });
+      document.addEventListener('mousedown', () => cursor.classList.add('clicking'));
+      document.addEventListener('mouseup', () => cursor.classList.remove('clicking'));
     }
   </script>
 </body>
